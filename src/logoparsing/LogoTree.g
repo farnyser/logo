@@ -24,8 +24,37 @@ options {
  prog : ^(PROGRAMME (instruction)*) 
      {Log.appendnl("Programme principal");}
 ;
-instruction :
-   ^(AV a = INT) {double m = Double.parseDouble($a.getText()); traceur.avance(m);}
- | ^(TD a = INT) {double m = Double.parseDouble($a.getText()); traceur.td(m);}
+
+expr returns [double v] :
+^('+' x=expr y=expr) {$v = $x.v + $y.v;}
+| ^('-' x=expr y=expr) {$v = $x.v - $y.v;}
+| ^(U_MOINS x=expr) {$v = - $x.v;}
+| ^('*' x=expr y=expr) {$v = $x.v * $y.v;}
+| ^('/' x=expr y=expr) {$v = $x.v / $y.v;}
+| ^('^' x=expr y=expr) {$v = Math.exp($y.v * Math.log($x.v));}
+| ^('<' x=expr y=expr) {$v = ($x.v < $y.v) ? 1 : 0;}
+| ^('<=' x=expr y=expr) {$v = ($x.v <= $y.v) ? 1 : 0;}
+| ^('>' x=expr y=expr) {$v = ($x.v > $y.v) ? 1 : 0;}
+| ^('>=' x=expr y=expr) {$v = ($x.v >= $y.v) ? 1 : 0;}
+| ^('=' x=expr y=expr) {$v = ($x.v == $y.v) ? 1 : 0;}
+| ^('!=' x=expr y=expr) {$v = ($x.v != $y.v) ? 1 : 0;}
+| ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
+| ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
+| INT {$v = Double.parseDouble($INT.text);}
 ;
-    
+
+instruction :
+   ^(AV a = expr) {traceur.avance($a.v);}
+ | ^(TD a = expr) {traceur.td($a.v);}
+ | ^(TG a = expr) {traceur.tg($a.v);}
+ | ^(REC a = expr) {traceur.avance(-$a.v);}
+ | ^(FCAP a = expr) {traceur.setTeta($a.v);}
+ | ^(FCC a = expr) {traceur.setColor($a.v);}
+ | ^(FPOS a = expr b = expr) 
+      {
+        traceur.setPos($a.v,$b.v);
+      }
+ | BC {traceur.setTrace(true);}
+ | LC {traceur.setTrace(false);}
+ | VE {traceur.clean();}
+;

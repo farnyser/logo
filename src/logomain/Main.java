@@ -21,7 +21,7 @@ public class Main {
 	public static void main(String[] args) {
 		//parse1();
 		//parse2();
-		//ui();
+		ui();
 	}
 	static void parse1() {
 		// Tokens d'un programme

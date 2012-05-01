@@ -17,8 +17,10 @@ tokens {
   FCAP = 'FCAP';
   FCC = 'FCC';
   DONNE = 'DONNE';
+  LOCALE = 'LOCALE';
   REPETE = 'REPETE';
   SI = 'SI';
+  TANTQUE = 'TANTQUE';
 }
 @lexer::header {
   package logoparsing;
@@ -43,7 +45,7 @@ tokens {
   }
 }
 
-IDENTIFIER : ('a'..'z')('_'|'0'..'9'|'a'..'z')*;
+IDENTIFIER : ('A'..'Z'|'a'..'z')('_'|'0'..'9'|'A'..'Z'|'a'..'z')*;
 //INT : ('+'|'-')?('0'..'9')+ ;
 INT : ('0'..'9')+ ;
 WS  :   (' '|'\t'|('\r'? '\n'))+ { skip(); } ;
@@ -79,10 +81,18 @@ atom:
 //atom: INT | '('! expr ')'! ;
 
 
-affectation : DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); };
+affectation : 
+  DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); }
+  | 
+  LOCALE^ '"'! IDENTIFIER expr { context.setLocal($IDENTIFIER.getText(), 0); }
+;
 
 repete :
   (REPETE^ expr '['! bloc ']'! )
+;
+
+tantque :
+  (TANTQUE^ expr '['! bloc ']'! )
 ;
 
 si :
@@ -90,7 +100,7 @@ si :
 ;
 
 instruction :
-  affectation | repete | si
+  affectation | repete | si | tantque
   | 
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
   |

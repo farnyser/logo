@@ -12,12 +12,15 @@ public class Context {
 		variables = new Vector< HashMap<String, Double> >();
 		newScope();
 	}
-		
+	
+	public void setLocal(String name, double value)
+	{
+		System.out.println("Context set " + name + " (scope:"+(variables.size()-1)+") to " + value);
+		variables.get(variables.size() - 1).put(name, new Double(value));
+	}
+	
 	public void set(String name, double value)
 	{
-//		System.out.println("Context set " + name + " (scope:"+(variables.size()-1)+") to " + value);
-//		variables.get(variables.size() - 1).put(name, new Double(value));
-
 		System.out.println("Context set " + name + " (scope:"+(getScope(name))+") to " + value);
 		variables.get(getScope(name)).put(name, new Double(value));
 	}

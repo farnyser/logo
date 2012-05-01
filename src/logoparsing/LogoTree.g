@@ -75,6 +75,31 @@ repete
 ;
 
 
+tantque 
+  @init
+  {
+    int cond = 0, bloc = 0;
+  } 
+  : ^(TANTQUE {cond = input.mark();} . {bloc = input.mark();} . )
+  {
+    boolean x = true;
+    while ( x ) 
+    {
+      push(cond+1);
+      x = expr() != 0;
+      pop();
+    
+      if ( x ) 
+      {
+	      push(bloc);
+	      bloc();
+	      pop();
+      }
+    }
+  }
+;
+
+
 si 
   @init
   {
@@ -92,8 +117,10 @@ si
 
 instruction :
  repete 
+ | tantque
  | si
  | ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}
+ | ^(LOCALE i = IDENTIFIER a = expr) { context.setLocal($i.getText(), $a.v);}
  | ^(AV a = expr) {traceur.avance($a.v);}
  | ^(TD a = expr) {traceur.td($a.v);}
  | ^(TG a = expr) {traceur.tg($a.v);}

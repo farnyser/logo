@@ -27,6 +27,8 @@ tokens {
   POUR = 'POUR';
   FIN = 'FIN';
   RENDS = 'RENDS';
+  LOOP = 'LOOP';
+  PAUSE = 'PAUSE';
 }
 @lexer::header {
   package logoparsing;
@@ -55,6 +57,7 @@ tokens {
 IDENTIFIER : ('A'..'Z'|'a'..'z')('_'|'0'..'9'|'A'..'Z'|'a'..'z')*;
 //INT : ('+'|'-')?('0'..'9')+ ;
 INT : ('0'..'9')+ ;
+REAL : ('0'..'9')+ '.' ('0'..'9')+ ;
 WS  :   (' '|'\t'|('\r'? '\n'))+ { skip(); } ;
 
 programme : liste_instructions -> ^(PROGRAMME liste_instructions);
@@ -73,11 +76,13 @@ atom:
 		  context.get($id.getText()); 
 		}
 		catch ( Exception e ) {
-	    Log.append("Parser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie\n");
+	    Log.appendnl("Parser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie");
 	    valide = false;
     }
   }
+  | LOOP {try {context.getLoop();} catch(Exception e) { Log.appendnl("Parser l. " + $LOOP.getLine() + " : LOOP ne peut etre utilise que dans un REPETE"); }}
   | INT 
+  | REAL
   | '+' INT -> INT 
   | '-' INT -> ^(U_MOINS INT) 
   | '('! expr ')'! 
@@ -131,7 +136,7 @@ affectation :
   | LOCALE^ '"'! IDENTIFIER expr { context.setLocal($IDENTIFIER.getText(), 0); }
 ;
 
-repete :
+repete @init{context.incLoop();} : 
   (REPETE^ expr '['! bloc ']'! )
 ;
 
@@ -150,7 +155,7 @@ rends :
 instruction :
   affectation | repete | si | tantque | deffonction | call | rends
   | 
-  ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
+  ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^ | PAUSE^) expr 
   |
   ( FPOS^ '['! expr expr ']'!) 
   |

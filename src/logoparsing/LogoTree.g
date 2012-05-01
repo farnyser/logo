@@ -19,11 +19,14 @@ options {
     traceur = Traceur.getInstance();
     traceur.setGraphics(g);
   }
-    public void push(int index) {
+  public void push(int index) {
      ((CommonTreeNodeStream)input).push(index);
   }
   public void pop() {
      ((CommonTreeNodeStream)input).pop();
+  }
+  public void rewind(int index) { 
+    ((CommonTreeNodeStream)input).rewind(index); 
   }
 }
 
@@ -47,14 +50,24 @@ expr returns [double v] :
 | ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
 | ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
 | INT {$v = Double.parseDouble($INT.text);}
+| REAL {$v = Double.parseDouble($REAL.text);}
 | id = IDENTIFIER {
-  try {
-    $v = context.get($id.getText()); 
+	  try {
+	    $v = context.get($id.getText()); 
+	   }
+	   catch ( Exception e ) {
+	      Log.appendnl("TreeParser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie");
+	   }
    }
-   catch ( Exception e ) {
-      Log.appendnl("TreeParser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie");
-   }
-};
+| LOOP { 
+	  try { 
+	    $v = context.getLoop();
+	  } 
+	  catch ( Exception e ) {
+	    Log.appendnl("TreeParser : LOOP inutilisable ici");
+	  } 
+  }
+;
 
 
 repete 
@@ -67,6 +80,7 @@ repete
     for (int i = 0; i < $n.v ; i++) 
     {
       Log.appendnl("TreeParser : repete iteration " + i);
+      context.incLoop();
       push(mark_list);
       bloc();
       pop();
@@ -133,14 +147,15 @@ call
   @init
   {
     Stack<Double> values = new Stack<Double>();
+    int mark_fin = 0;
   }
-  : ^(CALL name=IDENTIFIER (e=expr{values.add(new Double($e.v));})*)
+  : ^(CALL name=IDENTIFIER (e=expr{values.add(new Double($e.v));})* {mark_fin = input.mark();})
   {
-    context.call(this,$name.getText(),values);
+    context.call(this,mark_fin,$name.getText(),values);
   }
 ;
 
-rends : ^(RENDS e=expr) { context.returnValue($e.v); };
+rends : ^(RENDS e=expr) { context.returnValue(this,$e.v); };
 
 instruction :
  repete 
@@ -156,6 +171,7 @@ instruction :
  | ^(TG a = expr) {traceur.tg($a.v);}
  | ^(REC a = expr) {traceur.avance(-$a.v);}
  | ^(FCAP a = expr) {traceur.setTeta($a.v);}
+ | ^(PAUSE a = expr) {try{Thread.currentThread().sleep((long)$a.v);}catch(InterruptedException ie){}}
  | ^(FCC a = expr) {traceur.setColor($a.v);}
  | ^(FPOS a = expr b = expr) { traceur.setPos($a.v,$b.v); }
  | BC {traceur.setTrace(true);}

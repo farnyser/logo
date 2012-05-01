@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+
 /**
  * @author Claude Moulin
  *
@@ -20,7 +22,7 @@ public class Traceur {
 	private Graphics2D g2d;
 	private double initx = 300, inity = 300;   // position initiale
 	private double posx = initx, posy = inity; // position courante
-	private int angle = 90;
+	private int SIZE = 1000, angle = 90;
 	private double teta;
 	private boolean tracing;
 	
@@ -68,7 +70,7 @@ public class Traceur {
 	
 	public void clean() {
 		System.out.println("clean");
-		//g2d.clearRect(g2d.getClipBounds().x, g2d.getClipBounds().y, g2d.getClipBounds().width, g2d.getClipBounds().height);
+		g2d.clearRect(0, 0, SIZE, SIZE);
 	}
 
 	public void td(double r) {

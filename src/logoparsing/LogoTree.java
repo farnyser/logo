@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g 2012-05-01 18:03:23
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g 2012-05-01 21:56:31
 
   package logoparsing;
   import utilities.Context;
@@ -13,12 +13,9 @@ import java.util.ArrayList;
 
 public class LogoTree extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAMME", "CALL", "SCOPE", "VALUES", "PARAMETERS", "U_MOINS", "AV", "TD", "TG", "REC", "VE", "LC", "BC", "FPOS", "FCAP", "FCC", "DONNE", "LOCALE", "REPETE", "SI", "TANTQUE", "POUR", "FIN", "RENDS", "IDENTIFIER", "INT", "WS", "'>'", "'<'", "'='", "'<='", "'>='", "'!='", "'&'", "'|'", "'+'", "'-'", "'*'", "'/'", "'^'", "':'", "'('", "')'", "'\"'", "'['", "']'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAMME", "CALL", "SCOPE", "VALUES", "PARAMETERS", "U_MOINS", "AV", "TD", "TG", "REC", "VE", "LC", "BC", "FPOS", "FCAP", "FCC", "DONNE", "LOCALE", "REPETE", "SI", "TANTQUE", "POUR", "FIN", "RENDS", "LOOP", "PAUSE", "IDENTIFIER", "INT", "REAL", "WS", "'>'", "'<'", "'='", "'<='", "'>='", "'!='", "'&'", "'|'", "'+'", "'-'", "'*'", "'/'", "'^'", "':'", "'('", "')'", "'\"'", "'['", "']'"
     };
     public static final int EOF=-1;
-    public static final int T__31=31;
-    public static final int T__32=32;
-    public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
@@ -35,6 +32,9 @@ public class LogoTree extends TreeParser {
     public static final int T__47=47;
     public static final int T__48=48;
     public static final int T__49=49;
+    public static final int T__50=50;
+    public static final int T__51=51;
+    public static final int T__52=52;
     public static final int PROGRAMME=4;
     public static final int CALL=5;
     public static final int SCOPE=6;
@@ -59,9 +59,12 @@ public class LogoTree extends TreeParser {
     public static final int POUR=25;
     public static final int FIN=26;
     public static final int RENDS=27;
-    public static final int IDENTIFIER=28;
-    public static final int INT=29;
-    public static final int WS=30;
+    public static final int LOOP=28;
+    public static final int PAUSE=29;
+    public static final int IDENTIFIER=30;
+    public static final int INT=31;
+    public static final int REAL=32;
+    public static final int WS=33;
 
     // delegates
     // delegators
@@ -89,40 +92,43 @@ public class LogoTree extends TreeParser {
         traceur = Traceur.getInstance();
         traceur.setGraphics(g);
       }
-        public void push(int index) {
+      public void push(int index) {
          ((CommonTreeNodeStream)input).push(index);
       }
       public void pop() {
          ((CommonTreeNodeStream)input).pop();
       }
+      public void rewind(int index) { 
+        ((CommonTreeNodeStream)input).rewind(index); 
+      }
 
 
 
     // $ANTLR start "prog"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:30:1: prog : ^( PROGRAMME ( instruction )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:33:1: prog : ^( PROGRAMME ( instruction )* ) ;
     public final void prog() throws RecognitionException {
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:30:6: ( ^( PROGRAMME ( instruction )* ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:30:8: ^( PROGRAMME ( instruction )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:33:6: ( ^( PROGRAMME ( instruction )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:33:8: ^( PROGRAMME ( instruction )* )
             {
             match(input,PROGRAMME,FOLLOW_PROGRAMME_in_prog42); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:30:20: ( instruction )*
+                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:33:20: ( instruction )*
                 loop1:
                 do {
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
-                    if ( (LA1_0==CALL||(LA1_0>=AV && LA1_0<=POUR)||LA1_0==RENDS) ) {
+                    if ( (LA1_0==CALL||(LA1_0>=AV && LA1_0<=POUR)||LA1_0==RENDS||LA1_0==PAUSE) ) {
                         alt1=1;
                     }
 
 
                     switch (alt1) {
                 	case 1 :
-                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:30:21: instruction
+                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:33:21: instruction
                 	    {
                 	    pushFollow(FOLLOW_instruction_in_prog45);
                 	    instruction();
@@ -157,30 +163,30 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "bloc"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:32:1: bloc : ^( SCOPE ( instruction )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:1: bloc : ^( SCOPE ( instruction )* ) ;
     public final void bloc() throws RecognitionException {
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:32:6: ( ^( SCOPE ( instruction )* ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:32:8: ^( SCOPE ( instruction )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:6: ( ^( SCOPE ( instruction )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:8: ^( SCOPE ( instruction )* )
             {
             match(input,SCOPE,FOLLOW_SCOPE_in_bloc57); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:32:16: ( instruction )*
+                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:16: ( instruction )*
                 loop2:
                 do {
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
-                    if ( (LA2_0==CALL||(LA2_0>=AV && LA2_0<=POUR)||LA2_0==RENDS) ) {
+                    if ( (LA2_0==CALL||(LA2_0>=AV && LA2_0<=POUR)||LA2_0==RENDS||LA2_0==PAUSE) ) {
                         alt2=1;
                     }
 
 
                     switch (alt2) {
                 	case 1 :
-                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:32:17: instruction
+                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:17: instruction
                 	    {
                 	    pushFollow(FOLLOW_instruction_in_bloc60);
                 	    instruction();
@@ -215,27 +221,28 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "expr"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:34:1: expr returns [double v] : ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | INT | id= IDENTIFIER );
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:37:1: expr returns [double v] : ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | INT | REAL | id= IDENTIFIER | LOOP );
     public final double expr() throws RecognitionException {
         double v = 0.0;
 
         CommonTree id=null;
         CommonTree INT1=null;
+        CommonTree REAL2=null;
         double x = 0.0;
 
         double y = 0.0;
 
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:34:25: ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | INT | id= IDENTIFIER )
-            int alt3=16;
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:37:25: ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | INT | REAL | id= IDENTIFIER | LOOP )
+            int alt3=18;
             switch ( input.LA(1) ) {
-            case 39:
+            case 42:
                 {
                 alt3=1;
                 }
                 break;
-            case 40:
+            case 43:
                 {
                 alt3=2;
                 }
@@ -245,57 +252,57 @@ public class LogoTree extends TreeParser {
                 alt3=3;
                 }
                 break;
-            case 41:
+            case 44:
                 {
                 alt3=4;
                 }
                 break;
-            case 42:
+            case 45:
                 {
                 alt3=5;
                 }
                 break;
-            case 43:
+            case 46:
                 {
                 alt3=6;
                 }
                 break;
-            case 32:
+            case 35:
                 {
                 alt3=7;
                 }
                 break;
-            case 34:
+            case 37:
                 {
                 alt3=8;
                 }
                 break;
-            case 31:
+            case 34:
                 {
                 alt3=9;
                 }
                 break;
-            case 35:
+            case 38:
                 {
                 alt3=10;
                 }
                 break;
-            case 33:
+            case 36:
                 {
                 alt3=11;
                 }
                 break;
-            case 36:
+            case 39:
                 {
                 alt3=12;
                 }
                 break;
-            case 38:
+            case 41:
                 {
                 alt3=13;
                 }
                 break;
-            case 37:
+            case 40:
                 {
                 alt3=14;
                 }
@@ -305,9 +312,19 @@ public class LogoTree extends TreeParser {
                 alt3=15;
                 }
                 break;
-            case IDENTIFIER:
+            case REAL:
                 {
                 alt3=16;
+                }
+                break;
+            case IDENTIFIER:
+                {
+                alt3=17;
+                }
+                break;
+            case LOOP:
+                {
+                alt3=18;
                 }
                 break;
             default:
@@ -319,9 +336,9 @@ public class LogoTree extends TreeParser {
 
             switch (alt3) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:35:1: ^( '+' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:1: ^( '+' x= expr y= expr )
                     {
-                    match(input,39,FOLLOW_39_in_expr76); 
+                    match(input,42,FOLLOW_42_in_expr76); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr80);
@@ -341,9 +358,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:3: ^( '-' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:39:3: ^( '-' x= expr y= expr )
                     {
-                    match(input,40,FOLLOW_40_in_expr92); 
+                    match(input,43,FOLLOW_43_in_expr92); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr96);
@@ -363,7 +380,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:37:3: ^( U_MOINS x= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:40:3: ^( U_MOINS x= expr )
                     {
                     match(input,U_MOINS,FOLLOW_U_MOINS_in_expr108); 
 
@@ -380,9 +397,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:3: ^( '*' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:41:3: ^( '*' x= expr y= expr )
                     {
-                    match(input,41,FOLLOW_41_in_expr120); 
+                    match(input,44,FOLLOW_44_in_expr120); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr124);
@@ -402,9 +419,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:39:3: ^( '/' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:42:3: ^( '/' x= expr y= expr )
                     {
-                    match(input,42,FOLLOW_42_in_expr136); 
+                    match(input,45,FOLLOW_45_in_expr136); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr140);
@@ -424,9 +441,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:40:3: ^( '^' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:43:3: ^( '^' x= expr y= expr )
                     {
-                    match(input,43,FOLLOW_43_in_expr152); 
+                    match(input,46,FOLLOW_46_in_expr152); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr156);
@@ -446,9 +463,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:41:3: ^( '<' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:44:3: ^( '<' x= expr y= expr )
                     {
-                    match(input,32,FOLLOW_32_in_expr168); 
+                    match(input,35,FOLLOW_35_in_expr168); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr172);
@@ -468,9 +485,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:42:3: ^( '<=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:45:3: ^( '<=' x= expr y= expr )
                     {
-                    match(input,34,FOLLOW_34_in_expr184); 
+                    match(input,37,FOLLOW_37_in_expr184); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr188);
@@ -490,9 +507,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:43:3: ^( '>' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:46:3: ^( '>' x= expr y= expr )
                     {
-                    match(input,31,FOLLOW_31_in_expr200); 
+                    match(input,34,FOLLOW_34_in_expr200); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr204);
@@ -512,9 +529,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:44:3: ^( '>=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:47:3: ^( '>=' x= expr y= expr )
                     {
-                    match(input,35,FOLLOW_35_in_expr216); 
+                    match(input,38,FOLLOW_38_in_expr216); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr220);
@@ -534,9 +551,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:45:3: ^( '=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:48:3: ^( '=' x= expr y= expr )
                     {
-                    match(input,33,FOLLOW_33_in_expr232); 
+                    match(input,36,FOLLOW_36_in_expr232); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr236);
@@ -556,9 +573,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:46:3: ^( '!=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:49:3: ^( '!=' x= expr y= expr )
                     {
-                    match(input,36,FOLLOW_36_in_expr248); 
+                    match(input,39,FOLLOW_39_in_expr248); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr252);
@@ -578,9 +595,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:47:3: ^( '|' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:50:3: ^( '|' x= expr y= expr )
                     {
-                    match(input,38,FOLLOW_38_in_expr264); 
+                    match(input,41,FOLLOW_41_in_expr264); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr268);
@@ -600,9 +617,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:48:3: ^( '&' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:51:3: ^( '&' x= expr y= expr )
                     {
-                    match(input,37,FOLLOW_37_in_expr280); 
+                    match(input,40,FOLLOW_40_in_expr280); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_expr_in_expr284);
@@ -622,7 +639,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:49:3: INT
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:52:3: INT
                     {
                     INT1=(CommonTree)match(input,INT,FOLLOW_INT_in_expr295); 
                     v = Double.parseDouble((INT1!=null?INT1.getText():null));
@@ -630,17 +647,40 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:50:3: id= IDENTIFIER
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:53:3: REAL
                     {
-                    id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_expr305); 
+                    REAL2=(CommonTree)match(input,REAL,FOLLOW_REAL_in_expr301); 
+                    v = Double.parseDouble((REAL2!=null?REAL2.getText():null));
 
-                      try {
-                        v = context.get(id.getText()); 
-                       }
-                       catch ( Exception e ) {
-                          Log.appendnl("TreeParser l. " + id.getLine() + " : variable " + id.getText() + " non-definie");
-                       }
+                    }
+                    break;
+                case 17 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:54:3: id= IDENTIFIER
+                    {
+                    id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_expr311); 
 
+                    	  try {
+                    	    v = context.get(id.getText()); 
+                    	   }
+                    	   catch ( Exception e ) {
+                    	      Log.appendnl("TreeParser l. " + id.getLine() + " : variable " + id.getText() + " non-definie");
+                    	   }
+                       
+
+                    }
+                    break;
+                case 18 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:62:3: LOOP
+                    {
+                    match(input,LOOP,FOLLOW_LOOP_in_expr317); 
+                     
+                    	  try { 
+                    	    v = context.getLoop();
+                    	  } 
+                    	  catch ( Exception e ) {
+                    	    Log.appendnl("TreeParser : LOOP inutilisable ici");
+                    	  } 
+                      
 
                     }
                     break;
@@ -659,7 +699,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "repete"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:60:1: repete : ^( REPETE n= expr . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:73:1: repete : ^( REPETE n= expr . ) ;
     public final void repete() throws RecognitionException {
         double n = 0.0;
 
@@ -668,13 +708,13 @@ public class LogoTree extends TreeParser {
             int mark_list = 0;
           
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:65:3: ( ^( REPETE n= expr . ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:65:5: ^( REPETE n= expr . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:78:3: ( ^( REPETE n= expr . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:78:5: ^( REPETE n= expr . )
             {
-            match(input,REPETE,FOLLOW_REPETE_in_repete330); 
+            match(input,REPETE,FOLLOW_REPETE_in_repete343); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_expr_in_repete336);
+            pushFollow(FOLLOW_expr_in_repete349);
             n=expr();
 
             state._fsp--;
@@ -687,6 +727,7 @@ public class LogoTree extends TreeParser {
                 for (int i = 0; i < n ; i++) 
                 {
                   Log.appendnl("TreeParser : repete iteration " + i);
+                  context.incLoop();
                   push(mark_list);
                   bloc();
                   pop();
@@ -708,16 +749,16 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "tantque"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:78:1: tantque : ^( TANTQUE . . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:92:1: tantque : ^( TANTQUE . . ) ;
     public final void tantque() throws RecognitionException {
 
             int cond = 0, bloc = 0;
           
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:83:3: ( ^( TANTQUE . . ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:83:5: ^( TANTQUE . . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:97:3: ( ^( TANTQUE . . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:97:5: ^( TANTQUE . . )
             {
-            match(input,TANTQUE,FOLLOW_TANTQUE_in_tantque370); 
+            match(input,TANTQUE,FOLLOW_TANTQUE_in_tantque383); 
 
             cond = input.mark();
 
@@ -759,7 +800,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "si"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:103:1: si : ^( SI n= expr . . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:117:1: si : ^( SI n= expr . . ) ;
     public final void si() throws RecognitionException {
         double n = 0.0;
 
@@ -768,13 +809,13 @@ public class LogoTree extends TreeParser {
             int bif = 0, belse = 0;
           
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:109:3: ( ^( SI n= expr . . ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:109:5: ^( SI n= expr . . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:3: ( ^( SI n= expr . . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:5: ^( SI n= expr . . )
             {
-            match(input,SI,FOLLOW_SI_in_si409); 
+            match(input,SI,FOLLOW_SI_in_si422); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_expr_in_si413);
+            pushFollow(FOLLOW_expr_in_si426);
             n=expr();
 
             state._fsp--;
@@ -805,7 +846,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "deffonction"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:117:1: deffonction : ^( POUR name= IDENTIFIER a= . (b= . )? ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:131:1: deffonction : ^( POUR name= IDENTIFIER a= . (b= . )? ) ;
     public final void deffonction() throws RecognitionException {
         CommonTree name=null;
         CommonTree a=null;
@@ -816,26 +857,26 @@ public class LogoTree extends TreeParser {
             int mark_b = 0;
           
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:3: ( ^( POUR name= IDENTIFIER a= . (b= . )? ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:5: ^( POUR name= IDENTIFIER a= . (b= . )? )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:3: ( ^( POUR name= IDENTIFIER a= . (b= . )? ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:5: ^( POUR name= IDENTIFIER a= . (b= . )? )
             {
-            match(input,POUR,FOLLOW_POUR_in_deffonction450); 
+            match(input,POUR,FOLLOW_POUR_in_deffonction463); 
 
             match(input, Token.DOWN, null); 
-            name=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_deffonction454); 
+            name=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_deffonction467); 
             mark_a = input.mark();
             a=(CommonTree)input.LT(1);
             matchAny(input); 
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:57: (b= . )?
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:57: (b= . )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( ((LA4_0>=PROGRAMME && LA4_0<=49)) ) {
+            if ( ((LA4_0>=PROGRAMME && LA4_0<=52)) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:123:58: b= .
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:58: b= .
                     {
                     mark_b = input.mark();
                     b=(CommonTree)input.LT(1);
@@ -870,7 +911,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "call"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:132:1: call : ^( CALL name= IDENTIFIER (e= expr )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:146:1: call : ^( CALL name= IDENTIFIER (e= expr )* ) ;
     public final void call() throws RecognitionException {
         CommonTree name=null;
         double e = 0.0;
@@ -878,31 +919,32 @@ public class LogoTree extends TreeParser {
 
 
             Stack<Double> values = new Stack<Double>();
+            int mark_fin = 0;
           
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:3: ( ^( CALL name= IDENTIFIER (e= expr )* ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:5: ^( CALL name= IDENTIFIER (e= expr )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:152:3: ( ^( CALL name= IDENTIFIER (e= expr )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:152:5: ^( CALL name= IDENTIFIER (e= expr )* )
             {
-            match(input,CALL,FOLLOW_CALL_in_call497); 
+            match(input,CALL,FOLLOW_CALL_in_call510); 
 
             match(input, Token.DOWN, null); 
-            name=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_call501); 
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:28: (e= expr )*
+            name=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_call514); 
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:152:28: (e= expr )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==U_MOINS||(LA5_0>=IDENTIFIER && LA5_0<=INT)||(LA5_0>=31 && LA5_0<=43)) ) {
+                if ( (LA5_0==U_MOINS||LA5_0==LOOP||(LA5_0>=IDENTIFIER && LA5_0<=REAL)||(LA5_0>=34 && LA5_0<=46)) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:137:29: e= expr
+            	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:152:29: e= expr
             	    {
-            	    pushFollow(FOLLOW_expr_in_call506);
+            	    pushFollow(FOLLOW_expr_in_call519);
             	    e=expr();
 
             	    state._fsp--;
@@ -917,10 +959,11 @@ public class LogoTree extends TreeParser {
                 }
             } while (true);
 
+            mark_fin = input.mark();
 
             match(input, Token.UP, null); 
 
-                context.call(this,name.getText(),values);
+                context.call(this,mark_fin,name.getText(),values);
               
 
             }
@@ -938,26 +981,26 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "rends"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:143:1: rends : ^( RENDS e= expr ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:158:1: rends : ^( RENDS e= expr ) ;
     public final void rends() throws RecognitionException {
         double e = 0.0;
 
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:143:7: ( ^( RENDS e= expr ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:143:9: ^( RENDS e= expr )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:158:7: ( ^( RENDS e= expr ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:158:9: ^( RENDS e= expr )
             {
-            match(input,RENDS,FOLLOW_RENDS_in_rends524); 
+            match(input,RENDS,FOLLOW_RENDS_in_rends539); 
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_expr_in_rends528);
+            pushFollow(FOLLOW_expr_in_rends543);
             e=expr();
 
             state._fsp--;
 
 
             match(input, Token.UP, null); 
-             context.returnValue(e); 
+             context.returnValue(this,e); 
 
             }
 
@@ -974,7 +1017,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "instruction"
-    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:145:1: instruction : ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( FCC a= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE );
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:160:1: instruction : ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE );
     public final void instruction() throws RecognitionException {
         CommonTree i=null;
         double a = 0.0;
@@ -983,8 +1026,8 @@ public class LogoTree extends TreeParser {
 
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:145:13: ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( FCC a= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE )
-            int alt6=18;
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:160:13: ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE )
+            int alt6=19;
             switch ( input.LA(1) ) {
             case REPETE:
                 {
@@ -1051,29 +1094,34 @@ public class LogoTree extends TreeParser {
                 alt6=13;
                 }
                 break;
-            case FCC:
+            case PAUSE:
                 {
                 alt6=14;
                 }
                 break;
-            case FPOS:
+            case FCC:
                 {
                 alt6=15;
                 }
                 break;
-            case BC:
+            case FPOS:
                 {
                 alt6=16;
                 }
                 break;
-            case LC:
+            case BC:
                 {
                 alt6=17;
                 }
                 break;
-            case VE:
+            case LC:
                 {
                 alt6=18;
+                }
+                break;
+            case VE:
+                {
+                alt6=19;
                 }
                 break;
             default:
@@ -1085,9 +1133,9 @@ public class LogoTree extends TreeParser {
 
             switch (alt6) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:146:2: repete
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:161:2: repete
                     {
-                    pushFollow(FOLLOW_repete_in_instruction540);
+                    pushFollow(FOLLOW_repete_in_instruction555);
                     repete();
 
                     state._fsp--;
@@ -1096,9 +1144,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:147:4: tantque
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:162:4: tantque
                     {
-                    pushFollow(FOLLOW_tantque_in_instruction546);
+                    pushFollow(FOLLOW_tantque_in_instruction561);
                     tantque();
 
                     state._fsp--;
@@ -1107,9 +1155,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:148:4: si
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:163:4: si
                     {
-                    pushFollow(FOLLOW_si_in_instruction551);
+                    pushFollow(FOLLOW_si_in_instruction566);
                     si();
 
                     state._fsp--;
@@ -1118,9 +1166,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:149:4: deffonction
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:164:4: deffonction
                     {
-                    pushFollow(FOLLOW_deffonction_in_instruction556);
+                    pushFollow(FOLLOW_deffonction_in_instruction571);
                     deffonction();
 
                     state._fsp--;
@@ -1129,9 +1177,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:150:4: call
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:165:4: call
                     {
-                    pushFollow(FOLLOW_call_in_instruction561);
+                    pushFollow(FOLLOW_call_in_instruction576);
                     call();
 
                     state._fsp--;
@@ -1140,9 +1188,9 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:151:4: rends
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:166:4: rends
                     {
-                    pushFollow(FOLLOW_rends_in_instruction566);
+                    pushFollow(FOLLOW_rends_in_instruction581);
                     rends();
 
                     state._fsp--;
@@ -1151,13 +1199,13 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:152:4: ^( DONNE i= IDENTIFIER a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:167:4: ^( DONNE i= IDENTIFIER a= expr )
                     {
-                    match(input,DONNE,FOLLOW_DONNE_in_instruction572); 
+                    match(input,DONNE,FOLLOW_DONNE_in_instruction587); 
 
                     match(input, Token.DOWN, null); 
-                    i=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_instruction578); 
-                    pushFollow(FOLLOW_expr_in_instruction584);
+                    i=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_instruction593); 
+                    pushFollow(FOLLOW_expr_in_instruction599);
                     a=expr();
 
                     state._fsp--;
@@ -1169,13 +1217,13 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:153:4: ^( LOCALE i= IDENTIFIER a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:168:4: ^( LOCALE i= IDENTIFIER a= expr )
                     {
-                    match(input,LOCALE,FOLLOW_LOCALE_in_instruction593); 
+                    match(input,LOCALE,FOLLOW_LOCALE_in_instruction608); 
 
                     match(input, Token.DOWN, null); 
-                    i=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_instruction599); 
-                    pushFollow(FOLLOW_expr_in_instruction605);
+                    i=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_instruction614); 
+                    pushFollow(FOLLOW_expr_in_instruction620);
                     a=expr();
 
                     state._fsp--;
@@ -1187,12 +1235,12 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:154:4: ^( AV a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:169:4: ^( AV a= expr )
                     {
-                    match(input,AV,FOLLOW_AV_in_instruction614); 
+                    match(input,AV,FOLLOW_AV_in_instruction629); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction620);
+                    pushFollow(FOLLOW_expr_in_instruction635);
                     a=expr();
 
                     state._fsp--;
@@ -1204,12 +1252,12 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:155:4: ^( TD a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:170:4: ^( TD a= expr )
                     {
-                    match(input,TD,FOLLOW_TD_in_instruction629); 
+                    match(input,TD,FOLLOW_TD_in_instruction644); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction635);
+                    pushFollow(FOLLOW_expr_in_instruction650);
                     a=expr();
 
                     state._fsp--;
@@ -1221,12 +1269,12 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:156:4: ^( TG a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:171:4: ^( TG a= expr )
                     {
-                    match(input,TG,FOLLOW_TG_in_instruction644); 
+                    match(input,TG,FOLLOW_TG_in_instruction659); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction650);
+                    pushFollow(FOLLOW_expr_in_instruction665);
                     a=expr();
 
                     state._fsp--;
@@ -1238,12 +1286,12 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:157:4: ^( REC a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:172:4: ^( REC a= expr )
                     {
-                    match(input,REC,FOLLOW_REC_in_instruction659); 
+                    match(input,REC,FOLLOW_REC_in_instruction674); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction665);
+                    pushFollow(FOLLOW_expr_in_instruction680);
                     a=expr();
 
                     state._fsp--;
@@ -1255,12 +1303,12 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:158:4: ^( FCAP a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:173:4: ^( FCAP a= expr )
                     {
-                    match(input,FCAP,FOLLOW_FCAP_in_instruction674); 
+                    match(input,FCAP,FOLLOW_FCAP_in_instruction689); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction680);
+                    pushFollow(FOLLOW_expr_in_instruction695);
                     a=expr();
 
                     state._fsp--;
@@ -1272,12 +1320,29 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:159:4: ^( FCC a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:174:4: ^( PAUSE a= expr )
                     {
-                    match(input,FCC,FOLLOW_FCC_in_instruction689); 
+                    match(input,PAUSE,FOLLOW_PAUSE_in_instruction704); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction695);
+                    pushFollow(FOLLOW_expr_in_instruction710);
+                    a=expr();
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+                    try{Thread.currentThread().sleep((long)a);}catch(InterruptedException ie){}
+
+                    }
+                    break;
+                case 15 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:175:4: ^( FCC a= expr )
+                    {
+                    match(input,FCC,FOLLOW_FCC_in_instruction719); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_expr_in_instruction725);
                     a=expr();
 
                     state._fsp--;
@@ -1288,18 +1353,18 @@ public class LogoTree extends TreeParser {
 
                     }
                     break;
-                case 15 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:160:4: ^( FPOS a= expr b= expr )
+                case 16 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:176:4: ^( FPOS a= expr b= expr )
                     {
-                    match(input,FPOS,FOLLOW_FPOS_in_instruction704); 
+                    match(input,FPOS,FOLLOW_FPOS_in_instruction734); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_expr_in_instruction710);
+                    pushFollow(FOLLOW_expr_in_instruction740);
                     a=expr();
 
                     state._fsp--;
 
-                    pushFollow(FOLLOW_expr_in_instruction716);
+                    pushFollow(FOLLOW_expr_in_instruction746);
                     b=expr();
 
                     state._fsp--;
@@ -1310,26 +1375,26 @@ public class LogoTree extends TreeParser {
 
                     }
                     break;
-                case 16 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:161:4: BC
+                case 17 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:177:4: BC
                     {
-                    match(input,BC,FOLLOW_BC_in_instruction724); 
+                    match(input,BC,FOLLOW_BC_in_instruction754); 
                     traceur.setTrace(true);
 
                     }
                     break;
-                case 17 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:162:4: LC
+                case 18 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:178:4: LC
                     {
-                    match(input,LC,FOLLOW_LC_in_instruction731); 
+                    match(input,LC,FOLLOW_LC_in_instruction761); 
                     traceur.setTrace(false);
 
                     }
                     break;
-                case 18 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:163:4: VE
+                case 19 :
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:179:4: VE
                     {
-                    match(input,VE,FOLLOW_VE_in_instruction738); 
+                    match(input,VE,FOLLOW_VE_in_instruction768); 
                     traceur.clean();
 
                     }
@@ -1353,93 +1418,97 @@ public class LogoTree extends TreeParser {
  
 
     public static final BitSet FOLLOW_PROGRAMME_in_prog42 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_instruction_in_prog45 = new BitSet(new long[]{0x000000000BFFFC28L});
+    public static final BitSet FOLLOW_instruction_in_prog45 = new BitSet(new long[]{0x000000002BFFFC28L});
     public static final BitSet FOLLOW_SCOPE_in_bloc57 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_instruction_in_bloc60 = new BitSet(new long[]{0x000000000BFFFC28L});
-    public static final BitSet FOLLOW_39_in_expr76 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr80 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_instruction_in_bloc60 = new BitSet(new long[]{0x000000002BFFFC28L});
+    public static final BitSet FOLLOW_42_in_expr76 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr80 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr84 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_40_in_expr92 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr96 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_43_in_expr92 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr96 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr100 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_U_MOINS_in_expr108 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_expr112 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_41_in_expr120 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr124 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_44_in_expr120 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr124 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr128 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_42_in_expr136 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr140 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_45_in_expr136 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr140 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr144 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_43_in_expr152 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr156 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_46_in_expr152 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr156 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr160 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_32_in_expr168 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr172 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_35_in_expr168 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr172 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr176 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_34_in_expr184 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr188 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_37_in_expr184 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr188 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr192 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_31_in_expr200 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr204 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_34_in_expr200 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr204 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr208 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_35_in_expr216 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr220 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_38_in_expr216 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr220 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr224 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_33_in_expr232 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr236 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_36_in_expr232 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr236 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr240 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_36_in_expr248 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr252 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_39_in_expr248 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr252 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr256 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_38_in_expr264 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr268 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_41_in_expr264 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr268 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr272 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_37_in_expr280 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_expr284 = new BitSet(new long[]{0x00000FFFB0000200L});
+    public static final BitSet FOLLOW_40_in_expr280 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_expr284 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_expr288 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_INT_in_expr295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_expr305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_REPETE_in_repete330 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_repete336 = new BitSet(new long[]{0x0003FFFFFFFFFFF0L});
-    public static final BitSet FOLLOW_TANTQUE_in_tantque370 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_SI_in_si409 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_si413 = new BitSet(new long[]{0x0003FFFFFFFFFFF0L});
-    public static final BitSet FOLLOW_POUR_in_deffonction450 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_deffonction454 = new BitSet(new long[]{0x0003FFFFFFFFFFF0L});
-    public static final BitSet FOLLOW_CALL_in_call497 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_call501 = new BitSet(new long[]{0x00000FFFB0000208L});
-    public static final BitSet FOLLOW_expr_in_call506 = new BitSet(new long[]{0x00000FFFB0000208L});
-    public static final BitSet FOLLOW_RENDS_in_rends524 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_rends528 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_repete_in_instruction540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_tantque_in_instruction546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_si_in_instruction551 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_deffonction_in_instruction556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_call_in_instruction561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rends_in_instruction566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DONNE_in_instruction572 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_instruction578 = new BitSet(new long[]{0x00000FFFB0000200L});
-    public static final BitSet FOLLOW_expr_in_instruction584 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_LOCALE_in_instruction593 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_instruction599 = new BitSet(new long[]{0x00000FFFB0000200L});
-    public static final BitSet FOLLOW_expr_in_instruction605 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_AV_in_instruction614 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_REAL_in_expr301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_expr311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOOP_in_expr317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_REPETE_in_repete343 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_repete349 = new BitSet(new long[]{0x001FFFFFFFFFFFF0L});
+    public static final BitSet FOLLOW_TANTQUE_in_tantque383 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_SI_in_si422 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_si426 = new BitSet(new long[]{0x001FFFFFFFFFFFF0L});
+    public static final BitSet FOLLOW_POUR_in_deffonction463 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_deffonction467 = new BitSet(new long[]{0x001FFFFFFFFFFFF0L});
+    public static final BitSet FOLLOW_CALL_in_call510 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_call514 = new BitSet(new long[]{0x00007FFDD0000208L});
+    public static final BitSet FOLLOW_expr_in_call519 = new BitSet(new long[]{0x00007FFDD0000208L});
+    public static final BitSet FOLLOW_RENDS_in_rends539 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_rends543 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_repete_in_instruction555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_tantque_in_instruction561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_si_in_instruction566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_deffonction_in_instruction571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_call_in_instruction576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rends_in_instruction581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DONNE_in_instruction587 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_instruction593 = new BitSet(new long[]{0x00007FFDD0000200L});
+    public static final BitSet FOLLOW_expr_in_instruction599 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_LOCALE_in_instruction608 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_instruction614 = new BitSet(new long[]{0x00007FFDD0000200L});
     public static final BitSet FOLLOW_expr_in_instruction620 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TD_in_instruction629 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_AV_in_instruction629 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_instruction635 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_TG_in_instruction644 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TD_in_instruction644 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_instruction650 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_REC_in_instruction659 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_TG_in_instruction659 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_instruction665 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FCAP_in_instruction674 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_REC_in_instruction674 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_instruction680 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FCC_in_instruction689 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_FCAP_in_instruction689 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_expr_in_instruction695 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_FPOS_in_instruction704 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_expr_in_instruction710 = new BitSet(new long[]{0x00000FFFB0000200L});
-    public static final BitSet FOLLOW_expr_in_instruction716 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_BC_in_instruction724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LC_in_instruction731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VE_in_instruction738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PAUSE_in_instruction704 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_instruction710 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FCC_in_instruction719 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_instruction725 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_FPOS_in_instruction734 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_expr_in_instruction740 = new BitSet(new long[]{0x00007FFDD0000200L});
+    public static final BitSet FOLLOW_expr_in_instruction746 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_BC_in_instruction754 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LC_in_instruction761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VE_in_instruction768 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -1,7 +1,8 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/Logo.g 2012-05-01 09:09:58
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/Logo.g 2012-05-01 09:56:26
 
   package logoparsing;
   import utilities.Context;
+  import logogui.Log;
 
 
 import org.antlr.runtime.*;
@@ -91,7 +92,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "programme"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:1: programme : liste_instructions -> ^( PROGRAMME liste_instructions ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:1: programme : liste_instructions -> ^( PROGRAMME liste_instructions ) ;
     public final LogoParser.programme_return programme() throws RecognitionException {
         LogoParser.programme_return retval = new LogoParser.programme_return();
         retval.start = input.LT(1);
@@ -103,8 +104,8 @@ public class LogoParser extends Parser {
 
         RewriteRuleSubtreeStream stream_liste_instructions=new RewriteRuleSubtreeStream(adaptor,"rule liste_instructions");
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:11: ( liste_instructions -> ^( PROGRAMME liste_instructions ) )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:13: liste_instructions
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:11: ( liste_instructions -> ^( PROGRAMME liste_instructions ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:13: liste_instructions
             {
             pushFollow(FOLLOW_liste_instructions_in_programme225);
             liste_instructions1=liste_instructions();
@@ -125,9 +126,9 @@ public class LogoParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 41:32: -> ^( PROGRAMME liste_instructions )
+            // 42:32: -> ^( PROGRAMME liste_instructions )
             {
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:35: ^( PROGRAMME liste_instructions )
+                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:35: ^( PROGRAMME liste_instructions )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(PROGRAMME, "PROGRAMME"), root_1);
@@ -166,7 +167,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "liste_instructions"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:44:1: liste_instructions : ( instruction )+ ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:1: liste_instructions : ( instruction )+ ;
     public final LogoParser.liste_instructions_return liste_instructions() throws RecognitionException {
         LogoParser.liste_instructions_return retval = new LogoParser.liste_instructions_return();
         retval.start = input.LT(1);
@@ -178,12 +179,12 @@ public class LogoParser extends Parser {
 
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:44:20: ( ( instruction )+ )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:3: ( instruction )+
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:20: ( ( instruction )+ )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:46:3: ( instruction )+
             {
             root_0 = (Object)adaptor.nil();
 
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:3: ( instruction )+
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:46:3: ( instruction )+
             int cnt1=0;
             loop1:
             do {
@@ -197,7 +198,7 @@ public class LogoParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:4: instruction
+            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:46:4: instruction
             	    {
             	    pushFollow(FOLLOW_instruction_in_liste_instructions245);
             	    instruction2=instruction();
@@ -245,7 +246,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "expr"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:48:1: expr : boolExpr ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:1: expr : boolExpr ;
     public final LogoParser.expr_return expr() throws RecognitionException {
         LogoParser.expr_return retval = new LogoParser.expr_return();
         retval.start = input.LT(1);
@@ -257,8 +258,8 @@ public class LogoParser extends Parser {
 
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:48:6: ( boolExpr )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:48:8: boolExpr
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:6: ( boolExpr )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:8: boolExpr
             {
             root_0 = (Object)adaptor.nil();
 
@@ -295,7 +296,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "boolExpr"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:1: boolExpr : sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )? ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:1: boolExpr : sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )? ;
     public final LogoParser.boolExpr_return boolExpr() throws RecognitionException {
         LogoParser.boolExpr_return retval = new LogoParser.boolExpr_return();
         retval.start = input.LT(1);
@@ -311,8 +312,8 @@ public class LogoParser extends Parser {
         Object set5_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:10: ( sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )? )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:12: sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )?
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:10: ( sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )? )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:12: sumExpr ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )?
             {
             root_0 = (Object)adaptor.nil();
 
@@ -322,7 +323,7 @@ public class LogoParser extends Parser {
             state._fsp--;
 
             adaptor.addChild(root_0, sumExpr4.getTree());
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:20: ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )?
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:20: ( ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -331,7 +332,7 @@ public class LogoParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:21: ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:21: ( '>' | '<' | '=' | '<=' | '>=' | '!=' | '&' | '|' ) sumExpr
                     {
                     set5=(Token)input.LT(1);
                     set5=(Token)input.LT(1);
@@ -384,7 +385,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "sumExpr"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:1: sumExpr : multExpr ( ( '+' | '-' ) multExpr )* ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:1: sumExpr : multExpr ( ( '+' | '-' ) multExpr )* ;
     public final LogoParser.sumExpr_return sumExpr() throws RecognitionException {
         LogoParser.sumExpr_return retval = new LogoParser.sumExpr_return();
         retval.start = input.LT(1);
@@ -400,8 +401,8 @@ public class LogoParser extends Parser {
         Object set8_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:9: ( multExpr ( ( '+' | '-' ) multExpr )* )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:11: multExpr ( ( '+' | '-' ) multExpr )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:9: ( multExpr ( ( '+' | '-' ) multExpr )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:11: multExpr ( ( '+' | '-' ) multExpr )*
             {
             root_0 = (Object)adaptor.nil();
 
@@ -411,7 +412,7 @@ public class LogoParser extends Parser {
             state._fsp--;
 
             adaptor.addChild(root_0, multExpr7.getTree());
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:20: ( ( '+' | '-' ) multExpr )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:20: ( ( '+' | '-' ) multExpr )*
             loop3:
             do {
                 int alt3=2;
@@ -439,7 +440,7 @@ public class LogoParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:50:21: ( '+' | '-' ) multExpr
+            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:21: ( '+' | '-' ) multExpr
             	    {
             	    set8=(Token)input.LT(1);
             	    set8=(Token)input.LT(1);
@@ -495,7 +496,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "multExpr"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:1: multExpr : powExpr ( ( '*' | '/' ) powExpr )* ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:1: multExpr : powExpr ( ( '*' | '/' ) powExpr )* ;
     public final LogoParser.multExpr_return multExpr() throws RecognitionException {
         LogoParser.multExpr_return retval = new LogoParser.multExpr_return();
         retval.start = input.LT(1);
@@ -511,8 +512,8 @@ public class LogoParser extends Parser {
         Object set11_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:10: ( powExpr ( ( '*' | '/' ) powExpr )* )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:12: powExpr ( ( '*' | '/' ) powExpr )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:10: ( powExpr ( ( '*' | '/' ) powExpr )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:12: powExpr ( ( '*' | '/' ) powExpr )*
             {
             root_0 = (Object)adaptor.nil();
 
@@ -522,7 +523,7 @@ public class LogoParser extends Parser {
             state._fsp--;
 
             adaptor.addChild(root_0, powExpr10.getTree());
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:20: ( ( '*' | '/' ) powExpr )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:20: ( ( '*' | '/' ) powExpr )*
             loop4:
             do {
                 int alt4=2;
@@ -535,7 +536,7 @@ public class LogoParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:51:21: ( '*' | '/' ) powExpr
+            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:21: ( '*' | '/' ) powExpr
             	    {
             	    set11=(Token)input.LT(1);
             	    set11=(Token)input.LT(1);
@@ -591,7 +592,7 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "powExpr"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:1: powExpr : atom ( '^' atom )* ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:1: powExpr : atom ( '^' atom )* ;
     public final LogoParser.powExpr_return powExpr() throws RecognitionException {
         LogoParser.powExpr_return retval = new LogoParser.powExpr_return();
         retval.start = input.LT(1);
@@ -607,8 +608,8 @@ public class LogoParser extends Parser {
         Object char_literal14_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:9: ( atom ( '^' atom )* )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:11: atom ( '^' atom )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:9: ( atom ( '^' atom )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:11: atom ( '^' atom )*
             {
             root_0 = (Object)adaptor.nil();
 
@@ -618,7 +619,7 @@ public class LogoParser extends Parser {
             state._fsp--;
 
             adaptor.addChild(root_0, atom13.getTree());
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:16: ( '^' atom )*
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:16: ( '^' atom )*
             loop5:
             do {
                 int alt5=2;
@@ -631,7 +632,7 @@ public class LogoParser extends Parser {
 
                 switch (alt5) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:52:17: '^' atom
+            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:17: '^' atom
             	    {
             	    char_literal14=(Token)match(input,32,FOLLOW_32_in_powExpr342); 
             	    char_literal14_tree = (Object)adaptor.create(char_literal14);
@@ -679,38 +680,38 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "atom"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:1: atom : ( IDENTIFIER | INT | '+' INT -> INT | '-' INT -> ^( U_MOINS INT ) | '(' expr ')' );
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:54:1: atom : (id= IDENTIFIER | INT | '+' INT -> INT | '-' INT -> ^( U_MOINS INT ) | '(' expr ')' );
     public final LogoParser.atom_return atom() throws RecognitionException {
         LogoParser.atom_return retval = new LogoParser.atom_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token IDENTIFIER16=null;
-        Token INT17=null;
-        Token char_literal18=null;
-        Token INT19=null;
-        Token char_literal20=null;
-        Token INT21=null;
-        Token char_literal22=null;
-        Token char_literal24=null;
-        LogoParser.expr_return expr23 = null;
+        Token id=null;
+        Token INT16=null;
+        Token char_literal17=null;
+        Token INT18=null;
+        Token char_literal19=null;
+        Token INT20=null;
+        Token char_literal21=null;
+        Token char_literal23=null;
+        LogoParser.expr_return expr22 = null;
 
 
-        Object IDENTIFIER16_tree=null;
-        Object INT17_tree=null;
-        Object char_literal18_tree=null;
-        Object INT19_tree=null;
-        Object char_literal20_tree=null;
-        Object INT21_tree=null;
-        Object char_literal22_tree=null;
-        Object char_literal24_tree=null;
+        Object id_tree=null;
+        Object INT16_tree=null;
+        Object char_literal17_tree=null;
+        Object INT18_tree=null;
+        Object char_literal19_tree=null;
+        Object INT20_tree=null;
+        Object char_literal21_tree=null;
+        Object char_literal23_tree=null;
         RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
         RewriteRuleTokenStream stream_28=new RewriteRuleTokenStream(adaptor,"token 28");
         RewriteRuleTokenStream stream_29=new RewriteRuleTokenStream(adaptor,"token 29");
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:5: ( IDENTIFIER | INT | '+' INT -> INT | '-' INT -> ^( U_MOINS INT ) | '(' expr ')' )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:54:5: (id= IDENTIFIER | INT | '+' INT -> INT | '-' INT -> ^( U_MOINS INT ) | '(' expr ')' )
             int alt6=5;
             switch ( input.LA(1) ) {
             case IDENTIFIER:
@@ -747,37 +748,46 @@ public class LogoParser extends Parser {
 
             switch (alt6) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:7: IDENTIFIER
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:55:3: id= IDENTIFIER
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    IDENTIFIER16=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_atom354); 
-                    IDENTIFIER16_tree = (Object)adaptor.create(IDENTIFIER16);
-                    adaptor.addChild(root_0, IDENTIFIER16_tree);
+                    id=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_atom361); 
+                    id_tree = (Object)adaptor.create(id);
+                    adaptor.addChild(root_0, id_tree);
 
+
+                    		try {
+                    		  context.get(id.getText()); 
+                    		}
+                    		catch ( Exception e ) {
+                    	    Log.append("Parser : variable " + id.getText() + " non-definie\n");
+                    	    valide = false;
+                        }
+                      
 
                     }
                     break;
                 case 2 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:20: INT
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:5: INT
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    INT17=(Token)match(input,INT,FOLLOW_INT_in_atom358); 
-                    INT17_tree = (Object)adaptor.create(INT17);
-                    adaptor.addChild(root_0, INT17_tree);
+                    INT16=(Token)match(input,INT,FOLLOW_INT_in_atom372); 
+                    INT16_tree = (Object)adaptor.create(INT16);
+                    adaptor.addChild(root_0, INT16_tree);
 
 
                     }
                     break;
                 case 3 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:26: '+' INT
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:5: '+' INT
                     {
-                    char_literal18=(Token)match(input,28,FOLLOW_28_in_atom362);  
-                    stream_28.add(char_literal18);
+                    char_literal17=(Token)match(input,28,FOLLOW_28_in_atom379);  
+                    stream_28.add(char_literal17);
 
-                    INT19=(Token)match(input,INT,FOLLOW_INT_in_atom364);  
-                    stream_INT.add(INT19);
+                    INT18=(Token)match(input,INT,FOLLOW_INT_in_atom381);  
+                    stream_INT.add(INT18);
 
 
 
@@ -792,7 +802,7 @@ public class LogoParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 53:34: -> INT
+                    // 66:13: -> INT
                     {
                         adaptor.addChild(root_0, stream_INT.nextNode());
 
@@ -802,13 +812,13 @@ public class LogoParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:43: '-' INT
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:67:5: '-' INT
                     {
-                    char_literal20=(Token)match(input,29,FOLLOW_29_in_atom372);  
-                    stream_29.add(char_literal20);
+                    char_literal19=(Token)match(input,29,FOLLOW_29_in_atom392);  
+                    stream_29.add(char_literal19);
 
-                    INT21=(Token)match(input,INT,FOLLOW_INT_in_atom374);  
-                    stream_INT.add(INT21);
+                    INT20=(Token)match(input,INT,FOLLOW_INT_in_atom394);  
+                    stream_INT.add(INT20);
 
 
 
@@ -823,9 +833,9 @@ public class LogoParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 53:51: -> ^( U_MOINS INT )
+                    // 67:13: -> ^( U_MOINS INT )
                     {
-                        // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:54: ^( U_MOINS INT )
+                        // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:67:16: ^( U_MOINS INT )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(U_MOINS, "U_MOINS"), root_1);
@@ -841,18 +851,18 @@ public class LogoParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:53:71: '(' expr ')'
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:68:5: '(' expr ')'
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    char_literal22=(Token)match(input,33,FOLLOW_33_in_atom386); 
-                    pushFollow(FOLLOW_expr_in_atom389);
-                    expr23=expr();
+                    char_literal21=(Token)match(input,33,FOLLOW_33_in_atom409); 
+                    pushFollow(FOLLOW_expr_in_atom412);
+                    expr22=expr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, expr23.getTree());
-                    char_literal24=(Token)match(input,34,FOLLOW_34_in_atom391); 
+                    adaptor.addChild(root_0, expr22.getTree());
+                    char_literal23=(Token)match(input,34,FOLLOW_34_in_atom414); 
 
                     }
                     break;
@@ -882,44 +892,45 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "affectation"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:57:1: affectation : DONNE '\"' IDENTIFIER expr ;
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:73:1: affectation : DONNE '\"' IDENTIFIER expr ;
     public final LogoParser.affectation_return affectation() throws RecognitionException {
         LogoParser.affectation_return retval = new LogoParser.affectation_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token DONNE25=null;
-        Token char_literal26=null;
-        Token IDENTIFIER27=null;
-        LogoParser.expr_return expr28 = null;
+        Token DONNE24=null;
+        Token char_literal25=null;
+        Token IDENTIFIER26=null;
+        LogoParser.expr_return expr27 = null;
 
 
-        Object DONNE25_tree=null;
-        Object char_literal26_tree=null;
-        Object IDENTIFIER27_tree=null;
+        Object DONNE24_tree=null;
+        Object char_literal25_tree=null;
+        Object IDENTIFIER26_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:57:13: ( DONNE '\"' IDENTIFIER expr )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:57:15: DONNE '\"' IDENTIFIER expr
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:73:13: ( DONNE '\"' IDENTIFIER expr )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:73:15: DONNE '\"' IDENTIFIER expr
             {
             root_0 = (Object)adaptor.nil();
 
-            DONNE25=(Token)match(input,DONNE,FOLLOW_DONNE_in_affectation403); 
-            DONNE25_tree = (Object)adaptor.create(DONNE25);
-            root_0 = (Object)adaptor.becomeRoot(DONNE25_tree, root_0);
+            DONNE24=(Token)match(input,DONNE,FOLLOW_DONNE_in_affectation427); 
+            DONNE24_tree = (Object)adaptor.create(DONNE24);
+            root_0 = (Object)adaptor.becomeRoot(DONNE24_tree, root_0);
 
-            char_literal26=(Token)match(input,35,FOLLOW_35_in_affectation406); 
-            IDENTIFIER27=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_affectation409); 
-            IDENTIFIER27_tree = (Object)adaptor.create(IDENTIFIER27);
-            adaptor.addChild(root_0, IDENTIFIER27_tree);
+            char_literal25=(Token)match(input,35,FOLLOW_35_in_affectation430); 
+            IDENTIFIER26=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_affectation433); 
+            IDENTIFIER26_tree = (Object)adaptor.create(IDENTIFIER26);
+            adaptor.addChild(root_0, IDENTIFIER26_tree);
 
-            pushFollow(FOLLOW_expr_in_affectation411);
-            expr28=expr();
+            pushFollow(FOLLOW_expr_in_affectation435);
+            expr27=expr();
 
             state._fsp--;
 
-            adaptor.addChild(root_0, expr28.getTree());
+            adaptor.addChild(root_0, expr27.getTree());
+             context.set(IDENTIFIER26.getText(), 0); 
 
             }
 
@@ -947,49 +958,49 @@ public class LogoParser extends Parser {
     };
 
     // $ANTLR start "instruction"
-    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:59:1: instruction : ( affectation | ( AV | TD | TG | REC | FCAP | FCC ) expr | ( FPOS '[' expr expr ']' ) | ( VE | BC | LC ) );
+    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:75:1: instruction : ( affectation | ( AV | TD | TG | REC | FCAP | FCC ) expr | ( FPOS '[' expr expr ']' ) | ( VE | BC | LC ) );
     public final LogoParser.instruction_return instruction() throws RecognitionException {
         LogoParser.instruction_return retval = new LogoParser.instruction_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token AV30=null;
-        Token TD31=null;
-        Token TG32=null;
-        Token REC33=null;
-        Token FCAP34=null;
-        Token FCC35=null;
-        Token FPOS37=null;
-        Token char_literal38=null;
-        Token char_literal41=null;
-        Token VE42=null;
-        Token BC43=null;
-        Token LC44=null;
-        LogoParser.affectation_return affectation29 = null;
+        Token AV29=null;
+        Token TD30=null;
+        Token TG31=null;
+        Token REC32=null;
+        Token FCAP33=null;
+        Token FCC34=null;
+        Token FPOS36=null;
+        Token char_literal37=null;
+        Token char_literal40=null;
+        Token VE41=null;
+        Token BC42=null;
+        Token LC43=null;
+        LogoParser.affectation_return affectation28 = null;
 
-        LogoParser.expr_return expr36 = null;
+        LogoParser.expr_return expr35 = null;
+
+        LogoParser.expr_return expr38 = null;
 
         LogoParser.expr_return expr39 = null;
 
-        LogoParser.expr_return expr40 = null;
 
-
-        Object AV30_tree=null;
-        Object TD31_tree=null;
-        Object TG32_tree=null;
-        Object REC33_tree=null;
-        Object FCAP34_tree=null;
-        Object FCC35_tree=null;
-        Object FPOS37_tree=null;
-        Object char_literal38_tree=null;
-        Object char_literal41_tree=null;
-        Object VE42_tree=null;
-        Object BC43_tree=null;
-        Object LC44_tree=null;
+        Object AV29_tree=null;
+        Object TD30_tree=null;
+        Object TG31_tree=null;
+        Object REC32_tree=null;
+        Object FCAP33_tree=null;
+        Object FCC34_tree=null;
+        Object FPOS36_tree=null;
+        Object char_literal37_tree=null;
+        Object char_literal40_tree=null;
+        Object VE41_tree=null;
+        Object BC42_tree=null;
+        Object LC43_tree=null;
 
         try {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:59:13: ( affectation | ( AV | TD | TG | REC | FCAP | FCC ) expr | ( FPOS '[' expr expr ']' ) | ( VE | BC | LC ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:75:13: ( affectation | ( AV | TD | TG | REC | FCAP | FCC ) expr | ( FPOS '[' expr expr ']' ) | ( VE | BC | LC ) )
             int alt9=4;
             switch ( input.LA(1) ) {
             case DONNE:
@@ -1028,25 +1039,25 @@ public class LogoParser extends Parser {
 
             switch (alt9) {
                 case 1 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:60:3: affectation
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:76:3: affectation
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    pushFollow(FOLLOW_affectation_in_instruction421);
-                    affectation29=affectation();
+                    pushFollow(FOLLOW_affectation_in_instruction447);
+                    affectation28=affectation();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, affectation29.getTree());
+                    adaptor.addChild(root_0, affectation28.getTree());
 
                     }
                     break;
                 case 2 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:3: ( AV | TD | TG | REC | FCAP | FCC ) expr
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:3: ( AV | TD | TG | REC | FCAP | FCC ) expr
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:3: ( AV | TD | TG | REC | FCAP | FCC )
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:3: ( AV | TD | TG | REC | FCAP | FCC )
                     int alt7=6;
                     switch ( input.LA(1) ) {
                     case AV:
@@ -1088,61 +1099,61 @@ public class LogoParser extends Parser {
 
                     switch (alt7) {
                         case 1 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:5: AV
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:5: AV
                             {
-                            AV30=(Token)match(input,AV,FOLLOW_AV_in_instruction432); 
-                            AV30_tree = (Object)adaptor.create(AV30);
-                            root_0 = (Object)adaptor.becomeRoot(AV30_tree, root_0);
+                            AV29=(Token)match(input,AV,FOLLOW_AV_in_instruction458); 
+                            AV29_tree = (Object)adaptor.create(AV29);
+                            root_0 = (Object)adaptor.becomeRoot(AV29_tree, root_0);
 
 
                             }
                             break;
                         case 2 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:11: TD
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:11: TD
                             {
-                            TD31=(Token)match(input,TD,FOLLOW_TD_in_instruction437); 
-                            TD31_tree = (Object)adaptor.create(TD31);
-                            root_0 = (Object)adaptor.becomeRoot(TD31_tree, root_0);
+                            TD30=(Token)match(input,TD,FOLLOW_TD_in_instruction463); 
+                            TD30_tree = (Object)adaptor.create(TD30);
+                            root_0 = (Object)adaptor.becomeRoot(TD30_tree, root_0);
 
 
                             }
                             break;
                         case 3 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:17: TG
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:17: TG
                             {
-                            TG32=(Token)match(input,TG,FOLLOW_TG_in_instruction442); 
-                            TG32_tree = (Object)adaptor.create(TG32);
-                            root_0 = (Object)adaptor.becomeRoot(TG32_tree, root_0);
+                            TG31=(Token)match(input,TG,FOLLOW_TG_in_instruction468); 
+                            TG31_tree = (Object)adaptor.create(TG31);
+                            root_0 = (Object)adaptor.becomeRoot(TG31_tree, root_0);
 
 
                             }
                             break;
                         case 4 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:23: REC
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:23: REC
                             {
-                            REC33=(Token)match(input,REC,FOLLOW_REC_in_instruction447); 
-                            REC33_tree = (Object)adaptor.create(REC33);
-                            root_0 = (Object)adaptor.becomeRoot(REC33_tree, root_0);
+                            REC32=(Token)match(input,REC,FOLLOW_REC_in_instruction473); 
+                            REC32_tree = (Object)adaptor.create(REC32);
+                            root_0 = (Object)adaptor.becomeRoot(REC32_tree, root_0);
 
 
                             }
                             break;
                         case 5 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:29: FCAP
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:29: FCAP
                             {
-                            FCAP34=(Token)match(input,FCAP,FOLLOW_FCAP_in_instruction451); 
-                            FCAP34_tree = (Object)adaptor.create(FCAP34);
-                            root_0 = (Object)adaptor.becomeRoot(FCAP34_tree, root_0);
+                            FCAP33=(Token)match(input,FCAP,FOLLOW_FCAP_in_instruction477); 
+                            FCAP33_tree = (Object)adaptor.create(FCAP33);
+                            root_0 = (Object)adaptor.becomeRoot(FCAP33_tree, root_0);
 
 
                             }
                             break;
                         case 6 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:62:37: FCC
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:78:37: FCC
                             {
-                            FCC35=(Token)match(input,FCC,FOLLOW_FCC_in_instruction456); 
-                            FCC35_tree = (Object)adaptor.create(FCC35);
-                            root_0 = (Object)adaptor.becomeRoot(FCC35_tree, root_0);
+                            FCC34=(Token)match(input,FCC,FOLLOW_FCC_in_instruction482); 
+                            FCC34_tree = (Object)adaptor.create(FCC34);
+                            root_0 = (Object)adaptor.becomeRoot(FCC34_tree, root_0);
 
 
                             }
@@ -1150,41 +1161,41 @@ public class LogoParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_expr_in_instruction460);
-                    expr36=expr();
+                    pushFollow(FOLLOW_expr_in_instruction486);
+                    expr35=expr();
 
                     state._fsp--;
 
-                    adaptor.addChild(root_0, expr36.getTree());
+                    adaptor.addChild(root_0, expr35.getTree());
 
                     }
                     break;
                 case 3 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:3: ( FPOS '[' expr expr ']' )
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:80:3: ( FPOS '[' expr expr ']' )
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:3: ( FPOS '[' expr expr ']' )
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:5: FPOS '[' expr expr ']'
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:80:3: ( FPOS '[' expr expr ']' )
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:80:5: FPOS '[' expr expr ']'
                     {
-                    FPOS37=(Token)match(input,FPOS,FOLLOW_FPOS_in_instruction471); 
-                    FPOS37_tree = (Object)adaptor.create(FPOS37);
-                    root_0 = (Object)adaptor.becomeRoot(FPOS37_tree, root_0);
+                    FPOS36=(Token)match(input,FPOS,FOLLOW_FPOS_in_instruction497); 
+                    FPOS36_tree = (Object)adaptor.create(FPOS36);
+                    root_0 = (Object)adaptor.becomeRoot(FPOS36_tree, root_0);
 
-                    char_literal38=(Token)match(input,36,FOLLOW_36_in_instruction474); 
-                    pushFollow(FOLLOW_expr_in_instruction477);
+                    char_literal37=(Token)match(input,36,FOLLOW_36_in_instruction500); 
+                    pushFollow(FOLLOW_expr_in_instruction503);
+                    expr38=expr();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, expr38.getTree());
+                    pushFollow(FOLLOW_expr_in_instruction505);
                     expr39=expr();
 
                     state._fsp--;
 
                     adaptor.addChild(root_0, expr39.getTree());
-                    pushFollow(FOLLOW_expr_in_instruction479);
-                    expr40=expr();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, expr40.getTree());
-                    char_literal41=(Token)match(input,37,FOLLOW_37_in_instruction481); 
+                    char_literal40=(Token)match(input,37,FOLLOW_37_in_instruction507); 
 
                     }
 
@@ -1192,11 +1203,11 @@ public class LogoParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:3: ( VE | BC | LC )
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:82:3: ( VE | BC | LC )
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:3: ( VE | BC | LC )
+                    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:82:3: ( VE | BC | LC )
                     int alt8=3;
                     switch ( input.LA(1) ) {
                     case VE:
@@ -1223,31 +1234,31 @@ public class LogoParser extends Parser {
 
                     switch (alt8) {
                         case 1 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:4: VE
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:82:4: VE
                             {
-                            VE42=(Token)match(input,VE,FOLLOW_VE_in_instruction493); 
-                            VE42_tree = (Object)adaptor.create(VE42);
-                            root_0 = (Object)adaptor.becomeRoot(VE42_tree, root_0);
+                            VE41=(Token)match(input,VE,FOLLOW_VE_in_instruction519); 
+                            VE41_tree = (Object)adaptor.create(VE41);
+                            root_0 = (Object)adaptor.becomeRoot(VE41_tree, root_0);
 
 
                             }
                             break;
                         case 2 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:10: BC
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:82:10: BC
                             {
-                            BC43=(Token)match(input,BC,FOLLOW_BC_in_instruction498); 
-                            BC43_tree = (Object)adaptor.create(BC43);
-                            root_0 = (Object)adaptor.becomeRoot(BC43_tree, root_0);
+                            BC42=(Token)match(input,BC,FOLLOW_BC_in_instruction524); 
+                            BC42_tree = (Object)adaptor.create(BC42);
+                            root_0 = (Object)adaptor.becomeRoot(BC42_tree, root_0);
 
 
                             }
                             break;
                         case 3 :
-                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:66:16: LC
+                            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:82:16: LC
                             {
-                            LC44=(Token)match(input,LC,FOLLOW_LC_in_instruction503); 
-                            LC44_tree = (Object)adaptor.create(LC44);
-                            root_0 = (Object)adaptor.becomeRoot(LC44_tree, root_0);
+                            LC43=(Token)match(input,LC,FOLLOW_LC_in_instruction529); 
+                            LC43_tree = (Object)adaptor.create(LC43);
+                            root_0 = (Object)adaptor.becomeRoot(LC43_tree, root_0);
 
 
                             }
@@ -1298,34 +1309,34 @@ public class LogoParser extends Parser {
     public static final BitSet FOLLOW_atom_in_powExpr339 = new BitSet(new long[]{0x0000000100000002L});
     public static final BitSet FOLLOW_32_in_powExpr342 = new BitSet(new long[]{0x0000000230060000L});
     public static final BitSet FOLLOW_atom_in_powExpr345 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_atom354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_atom358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_atom362 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_INT_in_atom364 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_atom372 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_INT_in_atom374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_atom386 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_expr_in_atom389 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_atom391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DONNE_in_affectation403 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_affectation406 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_affectation409 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_expr_in_affectation411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_affectation_in_instruction421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AV_in_instruction432 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_TD_in_instruction437 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_TG_in_instruction442 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_REC_in_instruction447 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_FCAP_in_instruction451 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_FCC_in_instruction456 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_expr_in_instruction460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FPOS_in_instruction471 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_36_in_instruction474 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_expr_in_instruction477 = new BitSet(new long[]{0x0000000230060000L});
-    public static final BitSet FOLLOW_expr_in_instruction479 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_instruction481 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VE_in_instruction493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BC_in_instruction498 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LC_in_instruction503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_atom361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_atom372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_atom379 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_INT_in_atom381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_atom392 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_INT_in_atom394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_atom409 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_expr_in_atom412 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_atom414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DONNE_in_affectation427 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_affectation430 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_affectation433 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_expr_in_affectation435 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_affectation_in_instruction447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AV_in_instruction458 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_TD_in_instruction463 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_TG_in_instruction468 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_REC_in_instruction473 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_FCAP_in_instruction477 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_FCC_in_instruction482 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_expr_in_instruction486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FPOS_in_instruction497 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_instruction500 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_expr_in_instruction503 = new BitSet(new long[]{0x0000000230060000L});
+    public static final BitSet FOLLOW_expr_in_instruction505 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_instruction507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VE_in_instruction519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BC_in_instruction524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LC_in_instruction529 = new BitSet(new long[]{0x0000000000000002L});
 
 }

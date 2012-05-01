@@ -10,11 +10,11 @@ public class Context {
 	{
 		variables = new HashMap<String, Double>();
 	}
-	
-	public void set(String name, Double value)
+		
+	public void set(String name, double value)
 	{
 		System.out.println("Context set " + name + " to " + value);
-		variables.put(name, value);
+		variables.put(name, new Double(value));
 	}
 	
 	public double get(String name) throws Exception

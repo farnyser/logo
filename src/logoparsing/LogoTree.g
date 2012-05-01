@@ -49,6 +49,7 @@ expr returns [double v] :
     $v = context.get($IDENTIFIER.getText()); 
    }
    catch ( Exception e ) {
+    Log.append("TreeParser : variable " + $IDENTIFIER.getText() + " non-definie\n");
    }
 };
 

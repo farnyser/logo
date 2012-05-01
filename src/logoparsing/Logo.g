@@ -23,6 +23,7 @@ tokens {
 @header {
   package logoparsing;
   import utilities.Context;
+  import logogui.Log;
 }
 @members{
   Context context = new Context();
@@ -50,11 +51,26 @@ boolExpr : sumExpr (('>'|'<'|'='|'<='|'>='|'!='|'&'|'|')^ sumExpr)? ;
 sumExpr : multExpr (('+'|'-')^ multExpr)* ;
 multExpr : powExpr (('*'|'/')^ powExpr)* ;
 powExpr : atom ('^'^ atom)* ;
-atom: IDENTIFIER | INT | '+' INT -> INT | '-' INT -> ^(U_MOINS INT) | '('! expr ')'! ;
+atom: 
+  id = IDENTIFIER 
+  {
+		try {
+		  context.get($id.getText()); 
+		}
+		catch ( Exception e ) {
+	    Log.append("Parser : variable " + $IDENTIFIER.getText() + " non-definie\n");
+	    valide = false;
+    }
+  }
+  | INT 
+  | '+' INT -> INT 
+  | '-' INT -> ^(U_MOINS INT) 
+  | '('! expr ')'! 
+;
 //atom: INT | '('! expr ')'! ;
 
 
-affectation : DONNE^ '"'! IDENTIFIER expr;
+affectation : DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); };
 
 instruction :
   affectation

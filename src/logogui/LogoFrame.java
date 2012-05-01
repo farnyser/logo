@@ -191,7 +191,7 @@ public class LogoFrame extends JFrame {
 		if (jRunButton == null) {
 			jRunButton = new JButton();
 			jRunButton.setName("run");
-			jRunButton.setText("Exécute ...");
+			jRunButton.setText("Execute ...");
 			jRunButton.setPreferredSize(buttonDimension);
 			jRunButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -296,7 +296,7 @@ public class LogoFrame extends JFrame {
 				   // tree walker
 				   CommonTreeNodeStream nodes = new CommonTreeNodeStream(parseTree);
 				   LogoTree treewalker = new LogoTree(nodes);
-				   treewalker.initialize(getJLogoPane().getGraphics());
+				   treewalker.initialize(getJLogoPane().getGraphics(), parser.getContext());
 				   treewalker.prog();
 			   } 
 		} catch(Exception ex) {
@@ -367,7 +367,7 @@ public class LogoFrame extends JFrame {
 	public JPanel getJControlPane() {
 		if (jControlPane == null) {
 		  jControlPane = new JPanel();
-  		  jControlPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contrôle", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, null));
+  		  jControlPane.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Controle", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, null));
 		  initControlComponents();
 		}
 		return jControlPane;

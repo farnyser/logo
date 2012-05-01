@@ -18,6 +18,7 @@ tokens {
   FCC = 'FCC';
   DONNE = 'DONNE';
   REPETE = 'REPETE';
+  SI = 'SI';
 }
 @lexer::header {
   package logoparsing;
@@ -28,12 +29,18 @@ tokens {
   import logogui.Log;
 }
 @members{
-  Context context = new Context();
-  boolean valide = true;
+  private Context context = new Context();
+  private boolean valide = true;
   
-  public boolean getValide(){
-   return valide;
- }
+  public boolean getValide()
+  {
+    return valide;
+  }
+  
+  public Context getContext()
+  {
+    return context;
+  }
 }
 
 IDENTIFIER : ('a'..'z')('_'|'0'..'9'|'a'..'z')*;
@@ -54,7 +61,7 @@ sumExpr : multExpr (('+'|'-')^ multExpr)* ;
 multExpr : powExpr (('*'|'/')^ powExpr)* ;
 powExpr : atom ('^'^ atom)* ;
 atom: 
-  id = IDENTIFIER 
+  ':'! id = IDENTIFIER 
   {
 		try {
 		  context.get($id.getText()); 
@@ -74,16 +81,20 @@ atom:
 
 affectation : DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); };
 
+repete :
+  (REPETE^ expr '['! bloc ']'! )
+;
+
+si :
+  SI^ expr '['! bloc ']'! ('['! bloc ']'!)?
+;
+
 instruction :
-  affectation | repete
+  affectation | repete | si
   | 
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
   |
   ( FPOS^ '['! expr expr ']'!) 
   |
   (VE^ | BC^ | LC^)
-;
-
-repete :
-  (REPETE^ expr '['! bloc ']'! )
 ;

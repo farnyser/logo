@@ -15,8 +15,11 @@ public class Context {
 		
 	public void set(String name, double value)
 	{
-		System.out.println("Context set " + name + " (scope:"+(variables.size()-1)+") to " + value);
-		variables.get(variables.size() - 1).put(name, new Double(value));
+//		System.out.println("Context set " + name + " (scope:"+(variables.size()-1)+") to " + value);
+//		variables.get(variables.size() - 1).put(name, new Double(value));
+
+		System.out.println("Context set " + name + " (scope:"+(getScope(name))+") to " + value);
+		variables.get(getScope(name)).put(name, new Double(value));
 	}
 	
 	public double get(String name) throws Exception
@@ -28,6 +31,17 @@ public class Context {
 		}
 		 
 		throw new Exception("Variable non definie");
+	}	
+	
+	public int getScope(String name)
+	{
+		for ( int i = variables.size() - 1 ; i >= 0 ; i-- )
+		{
+			if ( variables.get(i).containsKey(name) )
+				return i;
+		}
+		 
+		return variables.size() - 1;
 	}
 	
 	public void newScope() 

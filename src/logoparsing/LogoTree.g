@@ -11,9 +11,11 @@ options {
 }
 @members{
   Traceur traceur;
-  Context context = new Context();
+  Context context;
   
-  public void initialize(java.awt.Graphics g) {
+  public void initialize(java.awt.Graphics g, Context c) 
+  {
+    context = c;
     traceur = Traceur.getInstance();
     traceur.setGraphics(g);
   }
@@ -24,9 +26,10 @@ options {
      ((CommonTreeNodeStream)input).pop();
   }
 }
- prog : ^(PROGRAMME (instruction)*) 
-     {Log.appendnl("Programme principal");}
-;
+
+prog : ^(PROGRAMME (instruction)*);
+
+bloc : ^(SCOPE (instruction)*);
 
 expr returns [double v] :
 ^('+' x=expr y=expr) {$v = $x.v + $y.v;}
@@ -49,28 +52,49 @@ expr returns [double v] :
     $v = context.get($id.getText()); 
    }
    catch ( Exception e ) {
-      Log.append("TreeParser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie\n");
+      Log.appendnl("TreeParser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie");
    }
 };
 
-bloc : ^(SCOPE instruction*);
 
-repete @init{int mark_list = 0;} :
-  ^(REPETE n = expr {mark_list = input.mark();}  . )
+repete 
+  @init
   {
-		for (int i = 0; i < $n.v ; i++) 
-		{
-		  Log.append("TreeParser : repete iteration " + i + "\n");
-			push(mark_list);
-			bloc();
-			pop();
-		}
-	}
+    int mark_list = 0;
+  } 
+  : ^(REPETE n = expr {mark_list = input.mark();} . )
+  {
+    for (int i = 0; i < $n.v ; i++) 
+    {
+      Log.appendnl("TreeParser : repete iteration " + i);
+      push(mark_list);
+      bloc();
+      pop();
+    }
+  }
 ;
 
+
+si 
+  @init
+  {
+    int bif = 0, belse = 0;
+  } 
+
+  : ^(SI n=expr {bif = input.mark();} . {belse = input.mark();} .)
+  {
+    if ( $n.v != 0 ) { push(bif); bloc(); pop(); }
+    else { push(belse); bloc(); pop(); }
+  }
+;
+
+
+
 instruction :
-   ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}
- |  ^(AV a = expr) {traceur.avance($a.v);}
+ repete 
+ | si
+ | ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}
+ | ^(AV a = expr) {traceur.avance($a.v);}
  | ^(TD a = expr) {traceur.td($a.v);}
  | ^(TG a = expr) {traceur.tg($a.v);}
  | ^(REC a = expr) {traceur.avance(-$a.v);}

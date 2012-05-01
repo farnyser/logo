@@ -44,15 +44,29 @@ expr returns [double v] :
 | ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
 | ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
 | INT {$v = Double.parseDouble($INT.text);}
-| IDENTIFIER {
+| id = IDENTIFIER {
   try {
-    $v = context.get($IDENTIFIER.getText()); 
+    $v = context.get($id.getText()); 
    }
    catch ( Exception e ) {
-    Log.append("TreeParser : variable " + $IDENTIFIER.getText() + " non-definie\n");
+      Log.append("TreeParser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie\n");
    }
 };
 
+bloc : ^(SCOPE instruction*);
+
+repete @init{int mark_list = 0;} :
+  ^(REPETE n = expr {mark_list = input.mark();}  . )
+  {
+		for (int i = 0; i < $n.v ; i++) 
+		{
+		  Log.append("TreeParser : repete iteration " + i + "\n");
+			push(mark_list);
+			bloc();
+			pop();
+		}
+	}
+;
 
 instruction :
    ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}

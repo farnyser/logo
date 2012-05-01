@@ -1,27 +1,43 @@
 package utilities;
 
 import java.util.HashMap;
+import java.util.Vector;
 
 
 public class Context {
-	protected HashMap<String, Double> variables;
+	protected Vector< HashMap<String, Double> > variables;
 	
 	public Context() 
 	{
-		variables = new HashMap<String, Double>();
+		variables = new Vector< HashMap<String, Double> >();
+		newScope();
 	}
 		
 	public void set(String name, double value)
 	{
-		System.out.println("Context set " + name + " to " + value);
-		variables.put(name, new Double(value));
+		System.out.println("Context set " + name + " (scope:"+(variables.size()-1)+") to " + value);
+		variables.get(variables.size() - 1).put(name, new Double(value));
 	}
 	
 	public double get(String name) throws Exception
 	{
-		if ( variables.containsKey(name) )
-			return variables.get(name);
-		else 
-			throw new Exception("Variable non definie");
+		for ( int i = variables.size() - 1 ; i >= 0 ; i-- )
+		{
+			if ( variables.get(i).containsKey(name) )
+				return variables.get(i).get(name);
+		}
+		 
+		throw new Exception("Variable non definie");
+	}
+	
+	public void newScope() 
+	{ 
+		variables.add( new HashMap<String, Double>() ); 
+	}	
+	
+	public void removeScope() 
+	{ 
+		if ( variables.size() > 0 )
+			variables.remove( variables.size() - 1 ); 
 	}
 }

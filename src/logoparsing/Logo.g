@@ -4,6 +4,7 @@ options {
 }
 tokens {
   PROGRAMME;
+  SCOPE;
   U_MOINS;
   AV = 'AV' ;
   TD = 'TD' ;
@@ -16,6 +17,7 @@ tokens {
   FCAP = 'FCAP';
   FCC = 'FCC';
   DONNE = 'DONNE';
+  REPETE = 'REPETE';
 }
 @lexer::header {
   package logoparsing;
@@ -39,11 +41,11 @@ IDENTIFIER : ('a'..'z')('_'|'0'..'9'|'a'..'z')*;
 INT : ('0'..'9')+ ;
 WS  :   (' '|'\t'|('\r'? '\n'))+ { skip(); } ;
 
-programme : liste_instructions -> ^(PROGRAMME liste_instructions)
-;
+programme : liste_instructions -> ^(PROGRAMME liste_instructions);
+bloc @init {context.newScope();} @after {context.removeScope();}: liste_instructions -> ^(SCOPE liste_instructions);
 
 liste_instructions :
-  (instruction)+   
+  (instruction)*
 ;
 
 expr : boolExpr ;
@@ -58,7 +60,7 @@ atom:
 		  context.get($id.getText()); 
 		}
 		catch ( Exception e ) {
-	    Log.append("Parser : variable " + $IDENTIFIER.getText() + " non-definie\n");
+	    Log.append("Parser l. " + $id.getLine() + " : variable " + $id.getText() + " non-definie\n");
 	    valide = false;
     }
   }
@@ -73,7 +75,7 @@ atom:
 affectation : DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); };
 
 instruction :
-  affectation
+  affectation | repete
   | 
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
   |
@@ -81,4 +83,7 @@ instruction :
   |
   (VE^ | BC^ | LC^)
 ;
- 
+
+repete :
+  (REPETE^ expr '['! bloc ']'! )
+;

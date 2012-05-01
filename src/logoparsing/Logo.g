@@ -26,6 +26,7 @@ tokens {
   TANTQUE = 'TANTQUE';
   POUR = 'POUR';
   FIN = 'FIN';
+  RENDS = 'RENDS';
 }
 @lexer::header {
   package logoparsing;
@@ -58,12 +59,7 @@ WS  :   (' '|'\t'|('\r'? '\n'))+ { skip(); } ;
 
 programme : liste_instructions -> ^(PROGRAMME liste_instructions);
 bloc @init {context.newScope();} @after {context.removeScope();}: liste_instructions -> ^(SCOPE liste_instructions);
-bloc_parametres : liste_parametres -> ^(PARAMETERS liste_parametres);
-bloc_valeurs : liste_valeurs -> ^(VALUES liste_valeurs);
-
 liste_instructions : (instruction)*;
-liste_parametres : (':'! IDENTIFIER)*;
-liste_valeurs : (expr)*;
 
 expr : boolExpr ;
 boolExpr : sumExpr (('>'|'<'|'='|'<='|'>='|'!='|'&'|'|')^ sumExpr)? ;
@@ -89,24 +85,33 @@ atom:
 //atom: INT | '('! expr ')'! ;
 
 
-deffonction : 
-  POUR^ name=IDENTIFIER bp=bloc_parametres bloc FIN!
-  {
-    CommonTree pnode = (CommonTree)bp.getTree();
+deffonction 
+@init
+{
     Vector<String> params = new Vector<String>();
+}
+: 
+  POUR name=IDENTIFIER (':' id=IDENTIFIER{params.add($id.getText());} -> IDENTIFIER)* {
+    context.newScope();
     
-    for ( int i = 0 ; i < pnode.getChildCount() ; i++ )
-      params.add(pnode.getChild(i).getText());
+    for ( int i = 0 ; i < params.size() ; i++ )
+    {
+      context.set(params.elementAt(i), 0);
+    }
     
     context.define($name.getText(),params);
-  }
+  } bloc {context.removeScope();} FIN
+  -> ^(POUR $name ^(VALUES IDENTIFIER*) bloc)
 ;
 
-call : 
-  name=IDENTIFIER bv=bloc_valeurs
+call
+  @init 
   {
-    int count = (bv != null && bv.getTree() != null) ? ((CommonTree)bv.getTree()).getChildCount() : 0;
-     
+    int count = 0; 
+  }
+  : 
+  name=IDENTIFIER (expr{count++;})*
+  {
     if ( context.callable($name.getText()) == false )  
     {
       Log.appendnl("Parser l. " + $name.getLine() + " : fonction " + $name.getText() + " non-definie\n");
@@ -118,7 +123,7 @@ call :
       valide = false;
     }
   }  
-  -> ^(CALL $name bloc_valeurs)
+  -> ^(CALL $name (expr)*)
 ;
 
 affectation : 
@@ -138,8 +143,12 @@ si :
   SI^ expr '['! bloc ']'! ('['! bloc ']'!)?
 ;
 
+rends : 
+  RENDS^ expr
+;
+
 instruction :
-  affectation | repete | si | tantque | deffonction | call
+  affectation | repete | si | tantque | deffonction | call | rends
   | 
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
   |

@@ -3,6 +3,10 @@ package utilities;
 import java.util.HashMap;
 import java.util.Vector;
 
+import org.antlr.runtime.RecognitionException;
+
+import logoparsing.LogoTree;
+
 
 public class Context {
 	protected Vector< HashMap<String, Double> > variables;
@@ -64,11 +68,33 @@ public class Context {
 	
 	// fonctions --
 
+	public void call(LogoTree tree, String name, Vector<Double> values)
+	{
+		System.out.println("Context call function " + name + ".");
+		
+		tree.push(functions.get(name).getMark());
+		try {
+			newScope();
+			for ( int i = 0 ; i < functions.get(name).getParameters().size() ; i++ )
+				set(functions.get(name).getParameters().elementAt(i), values.elementAt(i));
+			tree.bloc();
+			removeScope();
+		} catch (RecognitionException e) {
+			e.printStackTrace();
+		}
+		tree.pop();
+	}
+	
 	public void define(String name, Vector<String> params)
 	{
 		String pm = ""; for ( int i = 0 ; i < params.size() ; i++ ) { pm += params.elementAt(i) + ", "; } if ( pm.length() > 2 ) pm = pm.substring(0, pm.length()-2);
 		System.out.println("Context define " + name + " with parameters : " + pm);
 		functions.put(name, new Function(params));
+	}
+	
+	public void setFunctionMark(String name, int m)
+	{
+		functions.get(name).setMark(m);
 	}
 	
 	public boolean callable(String name)
@@ -79,6 +105,10 @@ public class Context {
 	public Vector<String> getParameters(String name)
 	{
 		return functions.containsKey(name) ? functions.get(name).getParameters() : new Vector<String>();
-
+	}
+	
+	public void returnValue(double d)
+	{
+		System.out.println("Context return " + d);
 	}
 }

@@ -20,4 +20,9 @@ public class Function {
 	{
 		return parameters;
 	}
+	
+	public int getMark() 
+	{
+		return mark;
+	}
 }

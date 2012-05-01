@@ -114,11 +114,41 @@ si
 ;
 
 
+deffonction 
+  @init
+  {
+    int mark_a = 0;
+    int mark_b = 0;
+  } 
+  : ^(POUR name=IDENTIFIER {mark_a = input.mark();} a=. ({mark_b = input.mark();} b=.)? )
+  {
+    if ( $b == null )
+      context.setFunctionMark($name.getText(),mark_a);
+    else
+      context.setFunctionMark($name.getText(),mark_b);
+  }
+;
+
+call 
+  @init
+  {
+    Stack<Double> values = new Stack<Double>();
+  }
+  : ^(CALL name=IDENTIFIER (e=expr{values.add(new Double($e.v));})*)
+  {
+    context.call(this,$name.getText(),values);
+  }
+;
+
+rends : ^(RENDS e=expr) { context.returnValue($e.v); };
 
 instruction :
  repete 
  | tantque
  | si
+ | deffonction
+ | call
+ | rends
  | ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}
  | ^(LOCALE i = IDENTIFIER a = expr) { context.setLocal($i.getText(), $a.v);}
  | ^(AV a = expr) {traceur.avance($a.v);}

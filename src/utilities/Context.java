@@ -6,8 +6,14 @@ import java.util.HashMap;
 public class Context {
 	protected HashMap<String, Double> variables;
 	
+	public Context() 
+	{
+		variables = new HashMap<String, Double>();
+	}
+	
 	public void set(String name, Double value)
 	{
+		System.out.println("Context set " + name + " to " + value);
 		variables.put(name, value);
 	}
 	

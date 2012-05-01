@@ -4,7 +4,10 @@ options {
 }
 tokens {
   PROGRAMME;
+  CALL;
   SCOPE;
+  VALUES;
+  PARAMETERS;
   U_MOINS;
   AV = 'AV' ;
   TD = 'TD' ;
@@ -21,6 +24,8 @@ tokens {
   REPETE = 'REPETE';
   SI = 'SI';
   TANTQUE = 'TANTQUE';
+  POUR = 'POUR';
+  FIN = 'FIN';
 }
 @lexer::header {
   package logoparsing;
@@ -29,6 +34,7 @@ tokens {
   package logoparsing;
   import utilities.Context;
   import logogui.Log;
+  import java.util.Vector;
 }
 @members{
   private Context context = new Context();
@@ -52,10 +58,12 @@ WS  :   (' '|'\t'|('\r'? '\n'))+ { skip(); } ;
 
 programme : liste_instructions -> ^(PROGRAMME liste_instructions);
 bloc @init {context.newScope();} @after {context.removeScope();}: liste_instructions -> ^(SCOPE liste_instructions);
+bloc_parametres : liste_parametres -> ^(PARAMETERS liste_parametres);
+bloc_valeurs : liste_valeurs -> ^(VALUES liste_valeurs);
 
-liste_instructions :
-  (instruction)*
-;
+liste_instructions : (instruction)*;
+liste_parametres : (':'! IDENTIFIER)*;
+liste_valeurs : (expr)*;
 
 expr : boolExpr ;
 boolExpr : sumExpr (('>'|'<'|'='|'<='|'>='|'!='|'&'|'|')^ sumExpr)? ;
@@ -81,10 +89,41 @@ atom:
 //atom: INT | '('! expr ')'! ;
 
 
+deffonction : 
+  POUR^ name=IDENTIFIER bp=bloc_parametres bloc FIN!
+  {
+    CommonTree pnode = (CommonTree)bp.getTree();
+    Vector<String> params = new Vector<String>();
+    
+    for ( int i = 0 ; i < pnode.getChildCount() ; i++ )
+      params.add(pnode.getChild(i).getText());
+    
+    context.define($name.getText(),params);
+  }
+;
+
+call : 
+  name=IDENTIFIER bv=bloc_valeurs
+  {
+    int count = (bv != null && bv.getTree() != null) ? ((CommonTree)bv.getTree()).getChildCount() : 0;
+     
+    if ( context.callable($name.getText()) == false )  
+    {
+      Log.appendnl("Parser l. " + $name.getLine() + " : fonction " + $name.getText() + " non-definie\n");
+      valide = false;
+    }
+    else if ( context.getParameters($name.getText()).size() != count )  
+    {
+      Log.appendnl("Parser l. " + $name.getLine() + " : fonction " + $name.getText() + " prend " + context.getParameters($name.getText()).size() + " argument(s)");
+      valide = false;
+    }
+  }  
+  -> ^(CALL $name bloc_valeurs)
+;
+
 affectation : 
   DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); }
-  | 
-  LOCALE^ '"'! IDENTIFIER expr { context.setLocal($IDENTIFIER.getText(), 0); }
+  | LOCALE^ '"'! IDENTIFIER expr { context.setLocal($IDENTIFIER.getText(), 0); }
 ;
 
 repete :
@@ -100,7 +139,7 @@ si :
 ;
 
 instruction :
-  affectation | repete | si | tantque
+  affectation | repete | si | tantque | deffonction | call
   | 
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^) expr 
   |

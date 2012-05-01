@@ -28,6 +28,9 @@ tokens {
   FIN = 'FIN';
   RENDS = 'RENDS';
   LOOP = 'LOOP';
+  HASARD = 'HASARD';
+  CAP = 'CAP';
+  PI = 'PI';
   PAUSE = 'PAUSE';
 }
 @lexer::header {
@@ -64,10 +67,10 @@ programme : liste_instructions -> ^(PROGRAMME liste_instructions);
 bloc @init {context.newScope();} @after {context.removeScope();}: liste_instructions -> ^(SCOPE liste_instructions);
 liste_instructions : (instruction)*;
 
-expr : boolExpr ;
+expr : HASARD? boolExpr ;
 boolExpr : sumExpr (('>'|'<'|'='|'<='|'>='|'!='|'&'|'|')^ sumExpr)? ;
 sumExpr : multExpr (('+'|'-')^ multExpr)* ;
-multExpr : powExpr (('*'|'/')^ powExpr)* ;
+multExpr : powExpr (('*'|'/'|'MOD')^ powExpr)* ;
 powExpr : atom ('^'^ atom)* ;
 atom: 
   ':'! id = IDENTIFIER 
@@ -81,6 +84,8 @@ atom:
     }
   }
   | LOOP {try {context.getLoop();} catch(Exception e) { Log.appendnl("Parser l. " + $LOOP.getLine() + " : LOOP ne peut etre utilise que dans un REPETE"); }}
+  | CAP
+  | PI
   | INT 
   | REAL
   | '+' INT -> INT 

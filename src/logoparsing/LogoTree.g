@@ -5,6 +5,7 @@ options {
 }
 @header {
   package logoparsing;
+  import java.util.Random;
   import utilities.Context;
   import logogui.Traceur;
   import logogui.Log;
@@ -12,9 +13,11 @@ options {
 @members{
   Traceur traceur;
   Context context;
-  
+  Random generator;
+    
   public void initialize(java.awt.Graphics g, Context c) 
   {
+    generator = new Random();
     context = c;
     traceur = Traceur.getInstance();
     traceur.setGraphics(g);
@@ -38,6 +41,7 @@ expr returns [double v] :
 ^('+' x=expr y=expr) {$v = $x.v + $y.v;}
 | ^('-' x=expr y=expr) {$v = $x.v - $y.v;}
 | ^(U_MOINS x=expr) {$v = - $x.v;}
+| ^('MOD' x=expr y=expr) {$v = (int)$x.v % (int)$y.v;}
 | ^('*' x=expr y=expr) {$v = $x.v * $y.v;}
 | ^('/' x=expr y=expr) {$v = $x.v / $y.v;}
 | ^('^' x=expr y=expr) {$v = Math.exp($y.v * Math.log($x.v));}
@@ -49,8 +53,11 @@ expr returns [double v] :
 | ^('!=' x=expr y=expr) {$v = ($x.v != $y.v) ? 1 : 0;}
 | ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
 | ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
+| PI {$v = new Double(3.14957);}
 | INT {$v = Double.parseDouble($INT.text);}
 | REAL {$v = Double.parseDouble($REAL.text);}
+| CAP {$v = traceur.getTeta();}
+| HASARD x=expr {$v = generator.nextInt((int)$x.v);}
 | id = IDENTIFIER {
 	  try {
 	    $v = context.get($id.getText()); 
@@ -119,11 +126,11 @@ si
   {
     int bif = 0, belse = 0;
   } 
-
-  : ^(SI n=expr {bif = input.mark();} . {belse = input.mark();} .)
+  : 
+  ^(SI n=expr {bif = input.mark();} . ({belse = input.mark();} els=.)?)
   {
     if ( $n.v != 0 ) { push(bif); bloc(); pop(); }
-    else { push(belse); bloc(); pop(); }
+    else if ($els != null) { push(belse); bloc(); pop(); }
   }
 ;
 

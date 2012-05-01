@@ -116,4 +116,9 @@ public class Traceur {
 		setTeta(angle);
 	}
 	
+	public Double getTeta() {
+		int a = (int) Math.toDegrees(teta);
+		while ( a < 0 ) a+= 360;
+		return new Double(a % 360);
+	}
 }

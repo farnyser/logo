@@ -142,14 +142,10 @@ deffonction
   @init
   {
     int mark_a = 0;
-    int mark_b = 0;
   } 
-  : ^(POUR name=IDENTIFIER {mark_a = input.mark();} a=. ({mark_b = input.mark();} b=.)? )
+  : ^(POUR name=IDENTIFIER {mark_a = input.mark();} a=. )
   {
-    if ( $b == null )
       context.setFunctionMark($name.getText(),mark_a);
-    else
-      context.setFunctionMark($name.getText(),mark_b);
   }
 ;
 
@@ -183,6 +179,7 @@ instruction :
  | ^(FCAP a = expr) {traceur.setTeta($a.v);}
  | ^(PAUSE a = expr) {try{Thread.currentThread().sleep((long)$a.v);}catch(InterruptedException ie){}}
  | ^(FCC a = expr) {traceur.setColor($a.v);}
+ | ^(FCC_RGB a = expr b = expr c = expr) {traceur.setColor($a.v,$b.v,$c.v);}
  | ^(FPOS a = expr b = expr) { traceur.setPos($a.v,$b.v); }
  | BC {traceur.setTrace(true);}
  | LC {traceur.setTrace(false);}

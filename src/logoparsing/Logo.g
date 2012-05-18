@@ -9,6 +9,7 @@ tokens {
   VALUES;
   PARAMETERS;
   U_MOINS;
+  FCC_RGB;
   AV = 'AV' ;
   TD = 'TD' ;
   TG = 'TG' ;
@@ -115,7 +116,7 @@ deffonction
     
     context.define($name.getText(),params);
   } bloc {context.removeScope(); context.exitFunctionScope();} FIN
-  -> ^(POUR $name ^(VALUES IDENTIFIER*) bloc)
+  -> ^(POUR $name bloc)
 ;
 
 call
@@ -175,6 +176,8 @@ instruction :
   ( AV^ | TD^ | TG^ | REC^| FCAP^ | FCC^ | PAUSE^) expr 
   |
   ( FPOS^ '['! expr expr ']'!) 
+  |
+  (FCC '[' a=expr b=expr c=expr ']' -> ^(FCC_RGB $a $b $c))
   |
   (VE^ | BC^ | LC^)
 ;

@@ -65,12 +65,10 @@ public class Traceur {
 	}
 	
 	public void setTrace(boolean b) {
-		System.out.println("trace=" + b);
 		tracing = b;
 	}
 	
 	public void clean() {
-		System.out.println("clean");
 		g2d.clearRect(0, 0, SIZE, SIZE);
 	}
 
@@ -105,8 +103,15 @@ public class Traceur {
 			case 6: g2d.setColor( Color.CYAN ); break;
 			case 7: g2d.setColor( Color.WHITE ); break;
 		}
+	}
+	
+	public void setColor(double r, double g, double b)
+	{
+		if ( r > 255 ) r = 255;
+		if ( g > 255 ) g = 255;
+		if ( b > 255 ) b = 255;
 		
-		
+		g2d.setColor( new Color((int)r,(int)g,(int)b) );
 	}
 
 	public void setTeta(double a) {

@@ -67,11 +67,14 @@ programme : liste_instructions -> ^(PROGRAMME liste_instructions);
 bloc @init {context.newScope();} @after {context.removeScope();}: liste_instructions -> ^(SCOPE liste_instructions);
 liste_instructions : (instruction)*;
 
-expr : HASARD? boolExpr ;
+expr : /*call |*/ recursExpr;
+recursExpr : boolExpr ;
 boolExpr : sumExpr (('>'|'<'|'='|'<='|'>='|'!='|'&'|'|')^ sumExpr)? ;
 sumExpr : multExpr (('+'|'-')^ multExpr)* ;
 multExpr : powExpr (('*'|'/'|'MOD')^ powExpr)* ;
-powExpr : atom ('^'^ atom)* ;
+powExpr : signedExpr (('^')^ signedExpr)* ;
+//signedExpr : ('+'? atom -> atom) | ('-' atom -> ^(U_MOINS atom));
+signedExpr : atom;
 atom: 
   ':'! id = IDENTIFIER 
   {
@@ -86,11 +89,11 @@ atom:
   | LOOP {try {context.getLoop();} catch(Exception e) { Log.appendnl("Parser l. " + $LOOP.getLine() + " : LOOP ne peut etre utilise que dans un REPETE"); }}
   | CAP
   | PI
-  | INT 
+  | INT
   | REAL
-  | '+' INT -> INT 
-  | '-' INT -> ^(U_MOINS INT) 
-  | '('! expr ')'! 
+  | HASARD^ atom
+  | '('! call ')'!
+  | '('! recursExpr ')'! 
 ;
 //atom: INT | '('! expr ')'! ;
 
@@ -102,15 +105,16 @@ deffonction
 }
 : 
   POUR name=IDENTIFIER (':' id=IDENTIFIER{params.add($id.getText());} -> IDENTIFIER)* {
+    context.setFunctionScope($name.getText());
     context.newScope();
     
     for ( int i = 0 ; i < params.size() ; i++ )
     {
-      context.set(params.elementAt(i), 0);
+      context.setParam(params.elementAt(i), 0);
     }
     
     context.define($name.getText(),params);
-  } bloc {context.removeScope();} FIN
+  } bloc {context.removeScope(); context.exitFunctionScope();} FIN
   -> ^(POUR $name ^(VALUES IDENTIFIER*) bloc)
 ;
 
@@ -120,7 +124,7 @@ call
     int count = 0; 
   }
   : 
-  name=IDENTIFIER (expr{count++;})*
+  name=IDENTIFIER (recursExpr{count++;})*
   {
     if ( context.callable($name.getText()) == false )  
     {
@@ -133,12 +137,20 @@ call
       valide = false;
     }
   }  
-  -> ^(CALL $name (expr)*)
+  -> ^(CALL $name (recursExpr)*)
 ;
 
 affectation : 
   DONNE^ '"'! IDENTIFIER expr { context.set($IDENTIFIER.getText(), 0); }
-  | LOCALE^ '"'! IDENTIFIER expr { context.setLocal($IDENTIFIER.getText(), 0); }
+  | LOCALE^ '"'! IDENTIFIER expr 
+    {
+      try{ context.setLocal($IDENTIFIER.getText(), 0);}
+      catch ( Exception e ) 
+      {
+	      Log.appendnl("Parser l. " + $IDENTIFIER.getLine() + " : variable locale " + $IDENTIFIER.getText() + " ne peut porter ce nom (existe comme argument de la fonction)");
+	      valide = false;
+      }
+    }
 ;
 
 repete @init{context.incLoop();} : 

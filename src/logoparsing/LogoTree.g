@@ -41,7 +41,7 @@ expr returns [double v] :
 ^('+' x=expr y=expr) {$v = $x.v + $y.v;}
 | ^('-' x=expr y=expr) {$v = $x.v - $y.v;}
 | ^(U_MOINS x=expr) {$v = - $x.v;}
-| ^('MOD' x=expr y=expr) {$v = (int)$x.v % (int)$y.v;}
+| ^('MOD' x=expr y=expr) {$v = (int)$x.v \% (int)$y.v; }
 | ^('*' x=expr y=expr) {$v = $x.v * $y.v;}
 | ^('/' x=expr y=expr) {$v = $x.v / $y.v;}
 | ^('^' x=expr y=expr) {$v = Math.exp($y.v * Math.log($x.v));}
@@ -53,11 +53,11 @@ expr returns [double v] :
 | ^('!=' x=expr y=expr) {$v = ($x.v != $y.v) ? 1 : 0;}
 | ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
 | ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
+| ^(HASARD x=expr) {$v = generator.nextInt((int)$x.v);} 
 | PI {$v = new Double(3.14957);}
 | INT {$v = Double.parseDouble($INT.text);}
 | REAL {$v = Double.parseDouble($REAL.text);}
 | CAP {$v = traceur.getTeta();}
-| HASARD x=expr {$v = generator.nextInt((int)$x.v);}
 | id = IDENTIFIER {
 	  try {
 	    $v = context.get($id.getText()); 
@@ -74,6 +74,7 @@ expr returns [double v] :
 	    Log.appendnl("TreeParser : LOOP inutilisable ici");
 	  } 
   }
+| call {$v = context.getReturnValue();}
 ;
 
 
@@ -84,6 +85,7 @@ repete
   } 
   : ^(REPETE n = expr {mark_list = input.mark();} . )
   {
+    context.newScope();
     for (int i = 0; i < $n.v ; i++) 
     {
       Log.appendnl("TreeParser : repete iteration " + i);
@@ -92,6 +94,7 @@ repete
       bloc();
       pop();
     }
+    context.removeScope();
   }
 ;
 
@@ -172,7 +175,7 @@ instruction :
  | call
  | rends
  | ^(DONNE i = IDENTIFIER a = expr) { context.set($i.getText(), $a.v);}
- | ^(LOCALE i = IDENTIFIER a = expr) { context.setLocal($i.getText(), $a.v);}
+ | ^(LOCALE i = IDENTIFIER a = expr) { try { context.setLocal($i.getText(), $a.v); } catch ( Exception e ) {} }
  | ^(AV a = expr) {traceur.avance($a.v);}
  | ^(TD a = expr) {traceur.td($a.v);}
  | ^(TG a = expr) {traceur.tg($a.v);}

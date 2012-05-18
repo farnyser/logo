@@ -22,7 +22,8 @@ public class Traceur {
 	private Graphics2D g2d;
 	private double initx = 300, inity = 300;   // position initiale
 	private double posx = initx, posy = inity; // position courante
-	private int SIZE = 1000, angle = 90;
+	private int SIZE = 1000;
+	private double angle = 90;
 	private double teta;
 	private boolean tracing;
 	
@@ -110,6 +111,7 @@ public class Traceur {
 
 	public void setTeta(double a) {
 		teta = Math.toRadians(a);
+		angle = a;
 	}
 	
 	private void setTeta() {

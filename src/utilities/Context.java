@@ -13,12 +13,15 @@ public class Context {
 	protected Vector< HashMap<String, Double> > variables;
 	protected HashMap<String, Function> functions;
 	protected Stack<Integer> marks;
+	protected Stack<String> calledFunction;
 	protected Vector<Integer> loop;
 	protected String currentFunction;
 	protected double returnValue;
+	private boolean interrupted = false;
 	
 	public Context() 
 	{
+		calledFunction = new Stack<String>();
 		variables = new Vector< HashMap<String, Double> >();
 		functions = new HashMap<String, Function>();
 		loop = new Vector<Integer>();
@@ -27,7 +30,8 @@ public class Context {
 	}
 	
 	public void newScope() 
-	{ 
+	{
+		interrupted = false;
 		variables.add( new HashMap<String, Double>() ); 
 		loop.add(new Integer(-1));
 	}	
@@ -119,6 +123,8 @@ public class Context {
 		System.out.println("Context call function " + name + ".");
 		
 		marks.push(after_call_mark);
+		calledFunction.push(name);
+		
 		tree.push(functions.get(name).getMark());
 		try {
 			newScope();
@@ -131,6 +137,7 @@ public class Context {
 		}
 		tree.pop();
 		if ( marks.size() > 0 ) { marks.pop(); }
+		if ( calledFunction.size() > 0 ) { calledFunction.pop(); }
 	}
 	
 	public void define(String name, Vector<String> params)
@@ -150,9 +157,10 @@ public class Context {
 		this.currentFunction = null;
 	}
 	
-	public void setFunctionMark(String name, int m)
+	public void setFunctionMark(String name, int m, LogoTree tree)
 	{
 		functions.get(name).setMark(m);
+		functions.get(name).setTree(tree);
 	}
 	
 	public boolean callable(String name)
@@ -165,17 +173,35 @@ public class Context {
 		return functions.containsKey(name) ? functions.get(name).getParameters() : new Vector<String>();
 	}
 	
-	public void returnValue(LogoTree tree, double d)
+	public boolean interrupted() 
+	{
+		return interrupted ;
+	}
+		
+	public void returnValue(double d)
 	{
 		System.out.println("Context return " + d);
 		returnValue = d;
+		interrupted = true;
 		
 		if ( marks.size() > 0 )
-			tree.rewind( marks.pop() );
+		{
+			System.out.println("rewind from " + this.calledFunction.peek());
+			this.functions.get(this.calledFunction.peek()).getTree().rewind( marks.peek() );
+		}
 	}
-	
+
 	public double getReturnValue()
 	{
 		return returnValue;
+	}
+	
+	public void rewind()
+	{
+		if ( marks.size() > 0 )
+		{
+			System.out.println("rewind from " + this.calledFunction.peek());
+			this.functions.get(this.calledFunction.peek()).getTree().rewind( marks.peek() );
+		}	
 	}
 }

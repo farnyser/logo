@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/Logo.g 2012-05-18 22:49:13
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g 2012-05-25 18:05:57
 
   package logoparsing;
 
@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class LogoLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__38=38;
-    public static final int T__39=39;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -30,6 +28,8 @@ public class LogoLexer extends Lexer {
     public static final int T__55=55;
     public static final int T__56=56;
     public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__59=59;
     public static final int PROGRAMME=4;
     public static final int CALL=5;
     public static final int SCOPE=6;
@@ -60,10 +60,12 @@ public class LogoLexer extends Lexer {
     public static final int CAP=31;
     public static final int PI=32;
     public static final int PAUSE=33;
-    public static final int IDENTIFIER=34;
-    public static final int INT=35;
-    public static final int REAL=36;
-    public static final int WS=37;
+    public static final int SIN=34;
+    public static final int COS=35;
+    public static final int IDENTIFIER=36;
+    public static final int INT=37;
+    public static final int REAL=38;
+    public static final int WS=39;
 
     // delegates
     // delegators
@@ -76,15 +78,15 @@ public class LogoLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "/home/scawf/workspace/nf11/src/logoparsing/Logo.g"; }
+    public String getGrammarFileName() { return "Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g"; }
 
     // $ANTLR start "AV"
     public final void mAV() throws RecognitionException {
         try {
             int _type = AV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:7:4: ( 'AV' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:7:6: 'AV'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:7:4: ( 'AV' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:7:6: 'AV'
             {
             match("AV"); 
 
@@ -104,8 +106,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = TD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:8:4: ( 'TD' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:8:6: 'TD'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:8:4: ( 'TD' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:8:6: 'TD'
             {
             match("TD"); 
 
@@ -125,8 +127,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = TG;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:9:4: ( 'TG' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:9:6: 'TG'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:9:4: ( 'TG' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:9:6: 'TG'
             {
             match("TG"); 
 
@@ -146,8 +148,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = REC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:10:5: ( 'REC' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:10:7: 'REC'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:10:5: ( 'REC' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:10:7: 'REC'
             {
             match("REC"); 
 
@@ -167,8 +169,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = VE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:11:4: ( 'VE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:11:6: 'VE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:11:4: ( 'VE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:11:6: 'VE'
             {
             match("VE"); 
 
@@ -188,8 +190,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = LC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:12:4: ( 'LC' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:12:6: 'LC'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:12:4: ( 'LC' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:12:6: 'LC'
             {
             match("LC"); 
 
@@ -209,8 +211,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = BC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:13:4: ( 'BC' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:13:6: 'BC'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:13:4: ( 'BC' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:13:6: 'BC'
             {
             match("BC"); 
 
@@ -230,8 +232,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = FPOS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:14:6: ( 'FPOS' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:14:8: 'FPOS'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:14:6: ( 'FPOS' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:14:8: 'FPOS'
             {
             match("FPOS"); 
 
@@ -251,8 +253,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = FCAP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:15:6: ( 'FCAP' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:15:8: 'FCAP'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:15:6: ( 'FCAP' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:15:8: 'FCAP'
             {
             match("FCAP"); 
 
@@ -272,8 +274,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = FCC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:16:5: ( 'FCC' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:16:7: 'FCC'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:16:5: ( 'FCC' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:16:7: 'FCC'
             {
             match("FCC"); 
 
@@ -293,8 +295,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = DONNE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:17:7: ( 'DONNE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:17:9: 'DONNE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:17:7: ( 'DONNE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:17:9: 'DONNE'
             {
             match("DONNE"); 
 
@@ -314,8 +316,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = LOCALE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:18:8: ( 'LOCALE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:18:10: 'LOCALE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:18:8: ( 'LOCALE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:18:10: 'LOCALE'
             {
             match("LOCALE"); 
 
@@ -335,8 +337,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = REPETE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:19:8: ( 'REPETE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:19:10: 'REPETE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:19:8: ( 'REPETE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:19:10: 'REPETE'
             {
             match("REPETE"); 
 
@@ -356,8 +358,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = SI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:20:4: ( 'SI' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:20:6: 'SI'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:20:4: ( 'SI' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:20:6: 'SI'
             {
             match("SI"); 
 
@@ -377,8 +379,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = TANTQUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:21:9: ( 'TANTQUE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:21:11: 'TANTQUE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:21:9: ( 'TANTQUE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:21:11: 'TANTQUE'
             {
             match("TANTQUE"); 
 
@@ -398,8 +400,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = POUR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:22:6: ( 'POUR' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:22:8: 'POUR'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:22:6: ( 'POUR' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:22:8: 'POUR'
             {
             match("POUR"); 
 
@@ -419,8 +421,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = FIN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:23:5: ( 'FIN' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:23:7: 'FIN'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:23:5: ( 'FIN' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:23:7: 'FIN'
             {
             match("FIN"); 
 
@@ -440,8 +442,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = RENDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:24:7: ( 'RENDS' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:24:9: 'RENDS'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:24:7: ( 'RENDS' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:24:9: 'RENDS'
             {
             match("RENDS"); 
 
@@ -461,8 +463,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = LOOP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:25:6: ( 'LOOP' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:25:8: 'LOOP'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:25:6: ( 'LOOP' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:25:8: 'LOOP'
             {
             match("LOOP"); 
 
@@ -482,8 +484,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = HASARD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:26:8: ( 'HASARD' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:26:10: 'HASARD'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:26:8: ( 'HASARD' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:26:10: 'HASARD'
             {
             match("HASARD"); 
 
@@ -503,8 +505,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = CAP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:27:5: ( 'CAP' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:27:7: 'CAP'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:27:5: ( 'CAP' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:27:7: 'CAP'
             {
             match("CAP"); 
 
@@ -524,8 +526,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = PI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:28:4: ( 'PI' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:28:6: 'PI'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:28:4: ( 'PI' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:28:6: 'PI'
             {
             match("PI"); 
 
@@ -545,8 +547,8 @@ public class LogoLexer extends Lexer {
         try {
             int _type = PAUSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:29:7: ( 'PAUSE' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:29:9: 'PAUSE'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:29:7: ( 'PAUSE' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:29:9: 'PAUSE'
             {
             match("PAUSE"); 
 
@@ -561,15 +563,16 @@ public class LogoLexer extends Lexer {
     }
     // $ANTLR end "PAUSE"
 
-    // $ANTLR start "T__38"
-    public final void mT__38() throws RecognitionException {
+    // $ANTLR start "SIN"
+    public final void mSIN() throws RecognitionException {
         try {
-            int _type = T__38;
+            int _type = SIN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:30:7: ( '>' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:30:9: '>'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:30:5: ( 'SIN' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:30:7: 'SIN'
             {
-            match('>'); 
+            match("SIN"); 
+
 
             }
 
@@ -579,17 +582,18 @@ public class LogoLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__38"
+    // $ANTLR end "SIN"
 
-    // $ANTLR start "T__39"
-    public final void mT__39() throws RecognitionException {
+    // $ANTLR start "COS"
+    public final void mCOS() throws RecognitionException {
         try {
-            int _type = T__39;
+            int _type = COS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:31:7: ( '<' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:31:9: '<'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:31:5: ( 'COS' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:31:7: 'COS'
             {
-            match('<'); 
+            match("COS"); 
+
 
             }
 
@@ -599,17 +603,17 @@ public class LogoLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__39"
+    // $ANTLR end "COS"
 
     // $ANTLR start "T__40"
     public final void mT__40() throws RecognitionException {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:32:7: ( '=' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:32:9: '='
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:32:7: ( '>' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:32:9: '>'
             {
-            match('='); 
+            match('>'); 
 
             }
 
@@ -626,11 +630,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:33:7: ( '<=' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:33:9: '<='
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:33:7: ( '<' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:33:9: '<'
             {
-            match("<="); 
-
+            match('<'); 
 
             }
 
@@ -647,11 +650,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:34:7: ( '>=' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:34:9: '>='
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:34:7: ( '=' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:34:9: '='
             {
-            match(">="); 
-
+            match('='); 
 
             }
 
@@ -668,10 +670,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:35:7: ( '!=' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:35:9: '!='
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:35:7: ( '<=' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:35:9: '<='
             {
-            match("!="); 
+            match("<="); 
 
 
             }
@@ -689,10 +691,11 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:36:7: ( '&' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:36:9: '&'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:36:7: ( '>=' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:36:9: '>='
             {
-            match('&'); 
+            match(">="); 
+
 
             }
 
@@ -709,10 +712,11 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:37:7: ( '|' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:37:9: '|'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:37:7: ( '!=' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:37:9: '!='
             {
-            match('|'); 
+            match("!="); 
+
 
             }
 
@@ -729,10 +733,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:38:7: ( '+' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:38:9: '+'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:38:7: ( '&' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:38:9: '&'
             {
-            match('+'); 
+            match('&'); 
 
             }
 
@@ -749,10 +753,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:39:7: ( '-' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:39:9: '-'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:39:7: ( '|' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:39:9: '|'
             {
-            match('-'); 
+            match('|'); 
 
             }
 
@@ -769,10 +773,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:40:7: ( '*' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:40:9: '*'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:40:7: ( '+' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:40:9: '+'
             {
-            match('*'); 
+            match('+'); 
 
             }
 
@@ -789,10 +793,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:7: ( '/' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:41:9: '/'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:41:7: ( '-' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:41:9: '-'
             {
-            match('/'); 
+            match('-'); 
 
             }
 
@@ -809,11 +813,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:7: ( 'MOD' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:42:9: 'MOD'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:42:7: ( '*' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:42:9: '*'
             {
-            match("MOD"); 
-
+            match('*'); 
 
             }
 
@@ -830,10 +833,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:43:7: ( '^' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:43:9: '^'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:43:7: ( '/' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:43:9: '/'
             {
-            match('^'); 
+            match('/'); 
 
             }
 
@@ -850,10 +853,11 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:44:7: ( ':' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:44:9: ':'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:44:7: ( 'MOD' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:44:9: 'MOD'
             {
-            match(':'); 
+            match("MOD"); 
+
 
             }
 
@@ -870,10 +874,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:7: ( '(' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:45:9: '('
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:45:7: ( '^' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:45:9: '^'
             {
-            match('('); 
+            match('^'); 
 
             }
 
@@ -890,10 +894,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:46:7: ( ')' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:46:9: ')'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:46:7: ( ':' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:46:9: ':'
             {
-            match(')'); 
+            match(':'); 
 
             }
 
@@ -910,10 +914,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:47:7: ( '\"' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:47:9: '\"'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:47:7: ( '(' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:47:9: '('
             {
-            match('\"'); 
+            match('('); 
 
             }
 
@@ -930,10 +934,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:48:7: ( '[' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:48:9: '['
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:48:7: ( ')' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:48:9: ')'
             {
-            match('['); 
+            match(')'); 
 
             }
 
@@ -950,10 +954,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:7: ( ']' )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:49:9: ']'
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:49:7: ( '\"' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:49:9: '\"'
             {
-            match(']'); 
+            match('\"'); 
 
             }
 
@@ -965,13 +969,53 @@ public class LogoLexer extends Lexer {
     }
     // $ANTLR end "T__57"
 
+    // $ANTLR start "T__58"
+    public final void mT__58() throws RecognitionException {
+        try {
+            int _type = T__58;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:50:7: ( '[' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:50:9: '['
+            {
+            match('['); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__58"
+
+    // $ANTLR start "T__59"
+    public final void mT__59() throws RecognitionException {
+        try {
+            int _type = T__59;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:51:7: ( ']' )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:51:9: ']'
+            {
+            match(']'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__59"
+
     // $ANTLR start "IDENTIFIER"
     public final void mIDENTIFIER() throws RecognitionException {
         try {
             int _type = IDENTIFIER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:61:12: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )* )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:61:14: ( 'A' .. 'Z' | 'a' .. 'z' ) ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )*
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:63:12: ( ( 'A' .. 'Z' | 'a' .. 'z' ) ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )* )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:63:14: ( 'A' .. 'Z' | 'a' .. 'z' ) ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -982,7 +1026,7 @@ public class LogoLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:61:33: ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )*
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:63:33: ( '_' | '0' .. '9' | 'A' .. 'Z' | 'a' .. 'z' )*
             loop1:
             do {
                 int alt1=2;
@@ -995,7 +1039,7 @@ public class LogoLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1031,10 +1075,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:63:5: ( ( '0' .. '9' )+ )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:63:7: ( '0' .. '9' )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:65:5: ( ( '0' .. '9' )+ )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:65:7: ( '0' .. '9' )+
             {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:63:7: ( '0' .. '9' )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:65:7: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -1048,7 +1092,7 @@ public class LogoLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:63:8: '0' .. '9'
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:65:8: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1080,10 +1124,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = REAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:6: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:8: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:6: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:8: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
             {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:8: ( '0' .. '9' )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:8: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1097,7 +1141,7 @@ public class LogoLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:9: '0' .. '9'
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:9: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1114,7 +1158,7 @@ public class LogoLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:24: ( '0' .. '9' )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:24: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1128,7 +1172,7 @@ public class LogoLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:64:25: '0' .. '9'
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:66:25: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1160,10 +1204,10 @@ public class LogoLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:5: ( ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+ )
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:9: ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:5: ( ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+ )
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:9: ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+
             {
-            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:9: ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+
+            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:9: ( ' ' | '\\t' | ( ( '\\r' )? '\\n' ) )+
             int cnt6=0;
             loop6:
             do {
@@ -1190,26 +1234,26 @@ public class LogoLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:10: ' '
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:10: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:14: '\\t'
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:14: '\\t'
             	    {
             	    match('\t'); 
 
             	    }
             	    break;
             	case 3 :
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:19: ( ( '\\r' )? '\\n' )
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:19: ( ( '\\r' )? '\\n' )
             	    {
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:19: ( ( '\\r' )? '\\n' )
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:20: ( '\\r' )? '\\n'
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:19: ( ( '\\r' )? '\\n' )
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:20: ( '\\r' )? '\\n'
             	    {
-            	    // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:20: ( '\\r' )?
+            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:20: ( '\\r' )?
             	    int alt5=2;
             	    int LA5_0 = input.LA(1);
 
@@ -1218,7 +1262,7 @@ public class LogoLexer extends Lexer {
             	    }
             	    switch (alt5) {
             	        case 1 :
-            	            // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:65:20: '\\r'
+            	            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:67:20: '\\r'
             	            {
             	            match('\r'); 
 
@@ -1257,334 +1301,348 @@ public class LogoLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:8: ( AV | TD | TG | REC | VE | LC | BC | FPOS | FCAP | FCC | DONNE | LOCALE | REPETE | SI | TANTQUE | POUR | FIN | RENDS | LOOP | HASARD | CAP | PI | PAUSE | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | IDENTIFIER | INT | REAL | WS )
-        int alt7=47;
+        // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:8: ( AV | TD | TG | REC | VE | LC | BC | FPOS | FCAP | FCC | DONNE | LOCALE | REPETE | SI | TANTQUE | POUR | FIN | RENDS | LOOP | HASARD | CAP | PI | PAUSE | SIN | COS | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | IDENTIFIER | INT | REAL | WS )
+        int alt7=49;
         alt7 = dfa7.predict(input);
         switch (alt7) {
             case 1 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:10: AV
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:10: AV
                 {
                 mAV(); 
 
                 }
                 break;
             case 2 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:13: TD
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:13: TD
                 {
                 mTD(); 
 
                 }
                 break;
             case 3 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:16: TG
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:16: TG
                 {
                 mTG(); 
 
                 }
                 break;
             case 4 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:19: REC
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:19: REC
                 {
                 mREC(); 
 
                 }
                 break;
             case 5 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:23: VE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:23: VE
                 {
                 mVE(); 
 
                 }
                 break;
             case 6 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:26: LC
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:26: LC
                 {
                 mLC(); 
 
                 }
                 break;
             case 7 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:29: BC
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:29: BC
                 {
                 mBC(); 
 
                 }
                 break;
             case 8 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:32: FPOS
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:32: FPOS
                 {
                 mFPOS(); 
 
                 }
                 break;
             case 9 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:37: FCAP
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:37: FCAP
                 {
                 mFCAP(); 
 
                 }
                 break;
             case 10 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:42: FCC
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:42: FCC
                 {
                 mFCC(); 
 
                 }
                 break;
             case 11 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:46: DONNE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:46: DONNE
                 {
                 mDONNE(); 
 
                 }
                 break;
             case 12 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:52: LOCALE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:52: LOCALE
                 {
                 mLOCALE(); 
 
                 }
                 break;
             case 13 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:59: REPETE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:59: REPETE
                 {
                 mREPETE(); 
 
                 }
                 break;
             case 14 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:66: SI
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:66: SI
                 {
                 mSI(); 
 
                 }
                 break;
             case 15 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:69: TANTQUE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:69: TANTQUE
                 {
                 mTANTQUE(); 
 
                 }
                 break;
             case 16 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:77: POUR
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:77: POUR
                 {
                 mPOUR(); 
 
                 }
                 break;
             case 17 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:82: FIN
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:82: FIN
                 {
                 mFIN(); 
 
                 }
                 break;
             case 18 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:86: RENDS
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:86: RENDS
                 {
                 mRENDS(); 
 
                 }
                 break;
             case 19 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:92: LOOP
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:92: LOOP
                 {
                 mLOOP(); 
 
                 }
                 break;
             case 20 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:97: HASARD
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:97: HASARD
                 {
                 mHASARD(); 
 
                 }
                 break;
             case 21 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:104: CAP
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:104: CAP
                 {
                 mCAP(); 
 
                 }
                 break;
             case 22 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:108: PI
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:108: PI
                 {
                 mPI(); 
 
                 }
                 break;
             case 23 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:111: PAUSE
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:111: PAUSE
                 {
                 mPAUSE(); 
 
                 }
                 break;
             case 24 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:117: T__38
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:117: SIN
                 {
-                mT__38(); 
+                mSIN(); 
 
                 }
                 break;
             case 25 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:123: T__39
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:121: COS
                 {
-                mT__39(); 
+                mCOS(); 
 
                 }
                 break;
             case 26 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:129: T__40
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:125: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 27 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:135: T__41
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:131: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 28 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:141: T__42
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:137: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 29 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:147: T__43
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:143: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 30 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:153: T__44
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:149: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 31 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:159: T__45
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:155: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 32 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:165: T__46
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:161: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 33 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:171: T__47
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:167: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 34 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:177: T__48
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:173: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 35 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:183: T__49
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:179: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 36 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:189: T__50
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:185: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 37 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:195: T__51
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:191: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 38 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:201: T__52
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:197: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 39 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:207: T__53
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:203: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 40 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:213: T__54
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:209: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
             case 41 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:219: T__55
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:215: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
             case 42 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:225: T__56
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:221: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
             case 43 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:231: T__57
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:227: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
             case 44 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:237: IDENTIFIER
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:233: T__58
+                {
+                mT__58(); 
+
+                }
+                break;
+            case 45 :
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:239: T__59
+                {
+                mT__59(); 
+
+                }
+                break;
+            case 46 :
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:245: IDENTIFIER
                 {
                 mIDENTIFIER(); 
 
                 }
                 break;
-            case 45 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:248: INT
+            case 47 :
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:256: INT
                 {
                 mINT(); 
 
                 }
                 break;
-            case 46 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:252: REAL
+            case 48 :
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:260: REAL
                 {
                 mREAL(); 
 
                 }
                 break;
-            case 47 :
-                // /home/scawf/workspace/nf11/src/logoparsing/Logo.g:1:257: WS
+            case 49 :
+                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\Logo.g:1:265: WS
                 {
                 mWS(); 
 
@@ -1598,42 +1656,43 @@ public class LogoLexer extends Lexer {
 
     protected DFA7 dfa7 = new DFA7(this);
     static final String DFA7_eotS =
-        "\1\uffff\14\37\1\66\1\70\10\uffff\1\37\10\uffff\1\72\1\uffff\1\74"+
-        "\1\75\1\76\2\37\1\103\1\104\1\37\1\107\4\37\1\115\1\37\1\117\3\37"+
-        "\4\uffff\1\37\5\uffff\1\37\1\125\2\37\2\uffff\2\37\1\uffff\2\37"+
-        "\1\134\1\135\1\37\1\uffff\1\37\1\uffff\2\37\1\142\1\143\1\37\1\uffff"+
-        "\3\37\1\150\1\151\1\152\2\uffff\1\37\1\154\2\37\2\uffff\2\37\1\161"+
-        "\1\37\3\uffff\1\163\1\uffff\1\164\2\37\1\167\1\uffff\1\170\2\uffff"+
-        "\1\171\1\172\4\uffff";
+        "\1\uffff\14\37\1\67\1\71\10\uffff\1\37\10\uffff\1\73\1\uffff\1"+
+        "\75\1\76\1\77\2\37\1\104\1\105\1\37\1\110\4\37\1\117\1\37\1\121"+
+        "\4\37\4\uffff\1\37\5\uffff\1\37\1\130\2\37\2\uffff\2\37\1\uffff"+
+        "\2\37\1\137\1\140\1\37\1\142\1\uffff\1\37\1\uffff\2\37\1\146\1\147"+
+        "\1\150\1\37\1\uffff\3\37\1\155\1\156\1\157\2\uffff\1\37\1\uffff"+
+        "\1\161\2\37\3\uffff\2\37\1\166\1\37\3\uffff\1\170\1\uffff\1\171"+
+        "\2\37\1\174\1\uffff\1\175\2\uffff\1\176\1\177\4\uffff";
     static final String DFA7_eofS =
-        "\173\uffff";
+        "\u0080\uffff";
     static final String DFA7_minS =
         "\1\11\1\126\1\101\2\105\3\103\1\117\1\111\3\101\2\75\10\uffff\1"+
         "\117\10\uffff\1\56\1\uffff\3\60\1\116\1\103\2\60\1\103\1\60\1\117"+
-        "\1\101\2\116\1\60\1\125\1\60\1\125\1\123\1\120\4\uffff\1\104\5\uffff"+
-        "\1\124\1\60\1\105\1\104\2\uffff\1\101\1\120\1\uffff\1\123\1\120"+
-        "\2\60\1\116\1\uffff\1\122\1\uffff\1\123\1\101\2\60\1\121\1\uffff"+
-        "\1\124\1\123\1\114\3\60\2\uffff\1\105\1\60\1\105\1\122\2\uffff\1"+
-        "\125\1\105\1\60\1\105\3\uffff\1\60\1\uffff\1\60\1\104\1\105\1\60"+
-        "\1\uffff\1\60\2\uffff\2\60\4\uffff";
+        "\1\101\2\116\1\60\1\125\1\60\1\125\1\123\1\120\1\123\4\uffff\1\104"+
+        "\5\uffff\1\124\1\60\1\105\1\104\2\uffff\1\101\1\120\1\uffff\1\123"+
+        "\1\120\2\60\1\116\1\60\1\uffff\1\122\1\uffff\1\123\1\101\3\60\1"+
+        "\121\1\uffff\1\124\1\123\1\114\3\60\2\uffff\1\105\1\uffff\1\60\1"+
+        "\105\1\122\3\uffff\1\125\1\105\1\60\1\105\3\uffff\1\60\1\uffff\1"+
+        "\60\1\104\1\105\1\60\1\uffff\1\60\2\uffff\2\60\4\uffff";
     static final String DFA7_maxS =
-        "\1\174\1\126\1\107\2\105\1\117\1\103\1\120\1\117\1\111\1\117\2\101"+
-        "\2\75\10\uffff\1\117\10\uffff\1\71\1\uffff\3\172\1\116\1\120\2\172"+
-        "\1\117\1\172\1\117\1\103\2\116\1\172\1\125\1\172\1\125\1\123\1\120"+
-        "\4\uffff\1\104\5\uffff\1\124\1\172\1\105\1\104\2\uffff\1\101\1\120"+
-        "\1\uffff\1\123\1\120\2\172\1\116\1\uffff\1\122\1\uffff\1\123\1\101"+
-        "\2\172\1\121\1\uffff\1\124\1\123\1\114\3\172\2\uffff\1\105\1\172"+
-        "\1\105\1\122\2\uffff\1\125\1\105\1\172\1\105\3\uffff\1\172\1\uffff"+
-        "\1\172\1\104\1\105\1\172\1\uffff\1\172\2\uffff\2\172\4\uffff";
+        "\1\174\1\126\1\107\2\105\1\117\1\103\1\120\1\117\1\111\1\117\1"+
+        "\101\1\117\2\75\10\uffff\1\117\10\uffff\1\71\1\uffff\3\172\1\116"+
+        "\1\120\2\172\1\117\1\172\1\117\1\103\2\116\1\172\1\125\1\172\1\125"+
+        "\1\123\1\120\1\123\4\uffff\1\104\5\uffff\1\124\1\172\1\105\1\104"+
+        "\2\uffff\1\101\1\120\1\uffff\1\123\1\120\2\172\1\116\1\172\1\uffff"+
+        "\1\122\1\uffff\1\123\1\101\3\172\1\121\1\uffff\1\124\1\123\1\114"+
+        "\3\172\2\uffff\1\105\1\uffff\1\172\1\105\1\122\3\uffff\1\125\1\105"+
+        "\1\172\1\105\3\uffff\1\172\1\uffff\1\172\1\104\1\105\1\172\1\uffff"+
+        "\1\172\2\uffff\2\172\4\uffff";
     static final String DFA7_acceptS =
-        "\17\uffff\1\32\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\uffff\1\45\1"+
-        "\46\1\47\1\50\1\51\1\52\1\53\1\54\1\uffff\1\57\23\uffff\1\34\1\30"+
-        "\1\33\1\31\1\uffff\1\55\1\56\1\1\1\2\1\3\4\uffff\1\5\1\6\2\uffff"+
-        "\1\7\5\uffff\1\16\1\uffff\1\26\5\uffff\1\4\6\uffff\1\12\1\21\4\uffff"+
-        "\1\25\1\44\4\uffff\1\23\1\10\1\11\1\uffff\1\20\4\uffff\1\22\1\uffff"+
-        "\1\13\1\27\2\uffff\1\15\1\14\1\24\1\17";
+        "\17\uffff\1\34\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\uffff\1\47"+
+        "\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\uffff\1\61\24\uffff\1\36\1"+
+        "\32\1\35\1\33\1\uffff\1\57\1\60\1\1\1\2\1\3\4\uffff\1\5\1\6\2\uffff"+
+        "\1\7\6\uffff\1\16\1\uffff\1\26\6\uffff\1\4\6\uffff\1\12\1\21\1\uffff"+
+        "\1\30\3\uffff\1\25\1\31\1\46\4\uffff\1\23\1\10\1\11\1\uffff\1\20"+
+        "\4\uffff\1\22\1\uffff\1\13\1\27\2\uffff\1\15\1\14\1\24\1\17";
     static final String DFA7_specialS =
-        "\173\uffff}>";
+        "\u0080\uffff}>";
     static final String[] DFA7_transitionS = {
             "\2\41\2\uffff\1\41\22\uffff\1\41\1\20\1\34\3\uffff\1\21\1\uffff"+
             "\1\32\1\33\1\25\1\23\1\uffff\1\24\1\uffff\1\26\12\40\1\31\1"+
@@ -1651,9 +1710,9 @@ public class LogoLexer extends Lexer {
             "\1\57",
             "\1\62\7\uffff\1\61\5\uffff\1\60",
             "\1\63",
-            "\1\64",
-            "\1\65",
-            "\1\67",
+            "\1\64\15\uffff\1\65",
+            "\1\66",
+            "\1\70",
             "",
             "",
             "",
@@ -1662,7 +1721,7 @@ public class LogoLexer extends Lexer {
             "",
             "",
             "",
-            "\1\71",
+            "\1\72",
             "",
             "",
             "",
@@ -1671,86 +1730,91 @@ public class LogoLexer extends Lexer {
             "",
             "",
             "",
-            "\1\73\1\uffff\12\40",
+            "\1\74\1\uffff\12\40",
             "",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\77",
-            "\1\100\12\uffff\1\102\1\uffff\1\101",
+            "\1\100",
+            "\1\101\12\uffff\1\103\1\uffff\1\102",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\105\13\uffff\1\106",
+            "\1\106\13\uffff\1\107",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\110",
-            "\1\111\1\uffff\1\112",
-            "\1\113",
+            "\1\111",
+            "\1\112\1\uffff\1\113",
             "\1\114",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\116",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\115",
+            "\12\37\7\uffff\15\37\1\116\14\37\4\uffff\1\37\1\uffff\32\37",
             "\1\120",
-            "\1\121",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\122",
-            "",
-            "",
-            "",
-            "",
             "\1\123",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\124",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\125",
+            "",
+            "",
+            "",
+            "",
             "\1\126",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\127",
-            "",
-            "",
-            "\1\130",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\131",
-            "",
             "\1\132",
+            "",
+            "",
             "\1\133",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\134",
+            "",
+            "\1\135",
             "\1\136",
-            "",
-            "\1\137",
-            "",
-            "\1\140",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\141",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "",
+            "\1\143",
+            "",
             "\1\144",
-            "",
             "\1\145",
-            "\1\146",
-            "\1\147",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\151",
             "",
-            "",
+            "\1\152",
             "\1\153",
+            "\1\154",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\155",
-            "\1\156",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
             "",
-            "\1\157",
             "\1\160",
+            "",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\162",
+            "\1\163",
             "",
             "",
             "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\164",
             "\1\165",
-            "\1\166",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\167",
+            "",
+            "",
+            "",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\172",
+            "\1\173",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "",
             "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
@@ -1794,7 +1858,7 @@ public class LogoLexer extends Lexer {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( AV | TD | TG | REC | VE | LC | BC | FPOS | FCAP | FCC | DONNE | LOCALE | REPETE | SI | TANTQUE | POUR | FIN | RENDS | LOOP | HASARD | CAP | PI | PAUSE | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | IDENTIFIER | INT | REAL | WS );";
+            return "1:1: Tokens : ( AV | TD | TG | REC | VE | LC | BC | FPOS | FCAP | FCC | DONNE | LOCALE | REPETE | SI | TANTQUE | POUR | FIN | RENDS | LOOP | HASARD | CAP | PI | PAUSE | SIN | COS | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | IDENTIFIER | INT | REAL | WS );";
         }
     }
  

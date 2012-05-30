@@ -41,6 +41,8 @@ expr returns [double v] :
 ^('+' x=expr y=expr) {$v = $x.v + $y.v;}
 | ^('-' x=expr y=expr) {$v = $x.v - $y.v;}
 | ^(U_MOINS x=expr) {$v = - $x.v;}
+| ^(COS x=expr) {$v = Math.cos($x.v);}
+| ^(SIN x=expr) {$v = Math.sin($x.v);}
 | ^('MOD' x=expr y=expr) {$v = (int)$x.v \% (int)$y.v; }
 | ^('*' x=expr y=expr) {$v = $x.v * $y.v;}
 | ^('/' x=expr y=expr) {$v = $x.v / $y.v;}
@@ -53,7 +55,10 @@ expr returns [double v] :
 | ^('!=' x=expr y=expr) {$v = ($x.v != $y.v) ? 1 : 0;}
 | ^('|' x=expr y=expr) {$v = ($x.v != 0 || $y.v != 0) ? 1 : 0;}
 | ^('&' x=expr y=expr) {$v = ($x.v !=0 && $y.v != 0) ? 1 : 0;}
-| ^(HASARD x=expr) {$v = generator.nextInt((int)$x.v);} 
+| ^(HASARD x=expr) {
+   if ( $x.v > 0 ) { $v = generator.nextInt((int)$x.v+1); }
+    else { $v = 0; } 
+ } 
 | PI {$v = new Double(3.14957);}
 | INT {$v = Double.parseDouble($INT.text);}
 | REAL {$v = Double.parseDouble($REAL.text);}
@@ -132,7 +137,7 @@ si
   : 
   ^(SI n=expr {bif = input.mark();} . ({belse = input.mark();} els=.)?)
   {
-    if ( $n.v != 0 ) { push(bif); bloc(); pop(); }
+    if ( $n.v != 0 ) { push(bif); bloc(); pop(); context.rewind(); }
     else if ($els != null) { push(belse); bloc(); pop(); }
   }
 ;
@@ -145,7 +150,7 @@ deffonction
   } 
   : ^(POUR name=IDENTIFIER {mark_a = input.mark();} a=. )
   {
-      context.setFunctionMark($name.getText(),mark_a);
+      context.setFunctionMark($name.getText(),mark_a, this);
   }
 ;
 
@@ -161,7 +166,7 @@ call
   }
 ;
 
-rends : ^(RENDS e=expr) { context.returnValue(this,$e.v); };
+rends : ^(RENDS e=expr) { context.returnValue($e.v); };
 
 instruction :
  repete 

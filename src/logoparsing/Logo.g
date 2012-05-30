@@ -33,6 +33,8 @@ tokens {
   CAP = 'CAP';
   PI = 'PI';
   PAUSE = 'PAUSE';
+  SIN = 'SIN';
+  COS = 'COS';
 }
 @lexer::header {
   package logoparsing;
@@ -93,6 +95,8 @@ atom:
   | INT
   | REAL
   | HASARD^ atom
+  | COS^ atom
+  | SIN^ atom
   | '('! call ')'!
   | '('! recursExpr ')'! 
 ;

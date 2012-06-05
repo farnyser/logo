@@ -182,3 +182,36 @@ nf11
 	 FCAP 360/:r*LOOP
 	 AV (factoriel LOOP)
 	]
+	
+*video*
+
+	POUR carre :c 
+		LC
+		AV :c/2
+		TD 90
+		AV :c/2
+		BC
+		
+		REPETE 4 
+		[
+			TD 90
+			AV :c
+		]
+	FIN
+	
+	POUR ccarre :c :x :y 
+		FPOS [ :x :y ] 
+		carre :c
+	FIN
+	
+	REPETE 500
+	[
+		VE
+		LOCALE "var 20
+		
+		FCAP 5 * (LOOP MOD :var)
+		ccarre 50 300 300
+		
+		SI LOOP < 100 [ FCC [ LOOP 0 0 ] ] [  FCC [ LOOP 0 LOOP/4 ] ]
+		PAUSE 30
+	]

@@ -126,59 +126,59 @@ nf11
 	
 *jolie mais inutile ?*
 
-POUR partie_cercle :l :a
- REPETE :a
- [
-  AV :l/90
-  TD 1
- ]
-FIN
-
-POUR etoile_cercle :x :y :l :c
- DONNE "i 1
- TANTQUE :i < 25
- [
-  REPETE 8 
-  [
-    FPOS [ :x :y ]
-    FCC [ 0 :i*10 :i*10 ]
-    partie_cercle :l*:i 360/:c
-  ]
-  DONNE "i :i+1
- ]
-FIN
-
-etoile_cercle 300 300 30 5
-etoile_cercle 400 300 30 3
-etoile_cercle 500 300 30 8
+	POUR partie_cercle :l :a
+	 REPETE :a
+	 [
+	  AV :l/90
+	  TD 1
+	 ]
+	FIN
+	
+	POUR etoile_cercle :x :y :l :c
+	 DONNE "i 1
+	 TANTQUE :i < 25
+	 [
+	  REPETE 8 
+	  [
+	    FPOS [ :x :y ]
+	    FCC [ 0 :i*10 :i*10 ]
+	    partie_cercle :l*:i 360/:c
+	  ]
+	  DONNE "i :i+1
+	 ]
+	FIN
+	
+	etoile_cercle 300 300 30 5
+	etoile_cercle 400 300 30 3
+	etoile_cercle 500 300 30 8
 
 *procedure*
 
-VE
-FPOS [ 300 300 ]
-FCC [ 0 0 0 ]
-
-POUR _carre :x
- RENDS :x*:x
-FIN
-
-AV 10
-TD 90
-AV (_carre 10)
+	VE
+	FPOS [ 300 300 ]
+	FCC [ 0 0 0 ]
+	
+	POUR _carre :x
+	 RENDS :x*:x
+	FIN
+	
+	AV 10
+	TD 90
+	AV (_carre 10)
 
 *recursion*
 
-POUR factoriel :n
- SI :n > 1 [ RENDS :n * (factoriel :n-1) ] [ RENDS 1 ]
-FIN
-
-VE
-FCC [ 0 0 0 ]
-
-DONNE "r 10
-REPETE :r
-[
- FPOS [ 300 300 ] 
- FCAP 360/:r*LOOP
- AV (factoriel LOOP)
-]
+	POUR factoriel :n
+	 SI :n > 1 [ RENDS :n * (factoriel :n-1) ] [ RENDS 1 ]
+	FIN
+	
+	VE
+	FCC [ 0 0 0 ]
+	
+	DONNE "r 10
+	REPETE :r
+	[
+	 FPOS [ 300 300 ] 
+	 FCAP 360/:r*LOOP
+	 AV (factoriel LOOP)
+	]

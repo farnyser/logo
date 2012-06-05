@@ -98,9 +98,9 @@ repete
       push(mark_list);
       bloc();
       pop();
-      if ( context.interrupted() ) return;
       context.rewind();
     }
+      context.rewind();
     context.removeScope();
   }
 ;

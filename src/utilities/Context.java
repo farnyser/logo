@@ -198,7 +198,7 @@ public class Context {
 	
 	public void rewind()
 	{
-		if ( marks.size() > 0 )
+		if ( marks.size() > 0 && interrupted() )
 		{
 			System.out.println("rewind from " + this.calledFunction.peek());
 			this.functions.get(this.calledFunction.peek()).getTree().rewind( marks.peek() );

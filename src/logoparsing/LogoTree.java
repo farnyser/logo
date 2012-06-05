@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g 2012-06-05 11:13:23
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g 2012-06-05 13:33:02
 
   package logoparsing;
   import java.util.Random;
@@ -881,9 +881,9 @@ public class LogoTree extends TreeParser {
                   push(mark_list);
                   bloc();
                   pop();
-                  if ( context.interrupted() ) return;
                   context.rewind();
                 }
+                  context.rewind();
                 context.removeScope();
               
 

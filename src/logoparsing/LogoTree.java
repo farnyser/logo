@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g 2012-05-25 18:05:58
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g 2012-06-05 11:13:23
 
   package logoparsing;
   import java.util.Random;
@@ -88,7 +88,7 @@ public class LogoTree extends TreeParser {
         
 
     public String[] getTokenNames() { return LogoTree.tokenNames; }
-    public String getGrammarFileName() { return "Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g"; }
+    public String getGrammarFileName() { return "/home/scawf/workspace/nf11/src/logoparsing/LogoTree.g"; }
 
 
       Traceur traceur;
@@ -115,17 +115,17 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "prog"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:36:1: prog : ^( PROGRAMME ( instruction )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:1: prog : ^( PROGRAMME ( instruction )* ) ;
     public final void prog() throws RecognitionException {
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:36:6: ( ^( PROGRAMME ( instruction )* ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:36:8: ^( PROGRAMME ( instruction )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:6: ( ^( PROGRAMME ( instruction )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:8: ^( PROGRAMME ( instruction )* )
             {
             match(input,PROGRAMME,FOLLOW_PROGRAMME_in_prog42); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:36:20: ( instruction )*
+                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:20: ( instruction )*
                 loop1:
                 do {
                     int alt1=2;
@@ -138,7 +138,7 @@ public class LogoTree extends TreeParser {
 
                     switch (alt1) {
                 	case 1 :
-                	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:36:21: instruction
+                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:36:21: instruction
                 	    {
                 	    pushFollow(FOLLOW_instruction_in_prog45);
                 	    instruction();
@@ -173,17 +173,17 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "bloc"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:38:1: bloc : ^( SCOPE ( instruction )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:1: bloc : ^( SCOPE ( instruction )* ) ;
     public final void bloc() throws RecognitionException {
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:38:6: ( ^( SCOPE ( instruction )* ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:38:8: ^( SCOPE ( instruction )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:6: ( ^( SCOPE ( instruction )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:8: ^( SCOPE ( instruction )* )
             {
             match(input,SCOPE,FOLLOW_SCOPE_in_bloc57); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:38:16: ( instruction )*
+                // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:16: ( instruction )*
                 loop2:
                 do {
                     int alt2=2;
@@ -196,7 +196,7 @@ public class LogoTree extends TreeParser {
 
                     switch (alt2) {
                 	case 1 :
-                	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:38:17: instruction
+                	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:38:17: instruction
                 	    {
                 	    pushFollow(FOLLOW_instruction_in_bloc60);
                 	    instruction();
@@ -231,7 +231,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "expr"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:40:1: expr returns [double v] : ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( COS x= expr ) | ^( SIN x= expr ) | ^( 'MOD' x= expr y= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | ^( HASARD x= expr ) | PI | INT | REAL | CAP | id= IDENTIFIER | LOOP | call );
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:40:1: expr returns [double v] : ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( COS x= expr ) | ^( SIN x= expr ) | ^( 'MOD' x= expr y= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | ^( HASARD x= expr ) | PI | INT | REAL | CAP | id= IDENTIFIER | LOOP | call );
     public final double expr() throws RecognitionException {
         double v = 0.0;
 
@@ -244,7 +244,7 @@ public class LogoTree extends TreeParser {
 
 
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:40:25: ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( COS x= expr ) | ^( SIN x= expr ) | ^( 'MOD' x= expr y= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | ^( HASARD x= expr ) | PI | INT | REAL | CAP | id= IDENTIFIER | LOOP | call )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:40:25: ( ^( '+' x= expr y= expr ) | ^( '-' x= expr y= expr ) | ^( U_MOINS x= expr ) | ^( COS x= expr ) | ^( SIN x= expr ) | ^( 'MOD' x= expr y= expr ) | ^( '*' x= expr y= expr ) | ^( '/' x= expr y= expr ) | ^( '^' x= expr y= expr ) | ^( '<' x= expr y= expr ) | ^( '<=' x= expr y= expr ) | ^( '>' x= expr y= expr ) | ^( '>=' x= expr y= expr ) | ^( '=' x= expr y= expr ) | ^( '!=' x= expr y= expr ) | ^( '|' x= expr y= expr ) | ^( '&' x= expr y= expr ) | ^( HASARD x= expr ) | PI | INT | REAL | CAP | id= IDENTIFIER | LOOP | call )
             int alt3=25;
             switch ( input.LA(1) ) {
             case 48:
@@ -381,7 +381,7 @@ public class LogoTree extends TreeParser {
 
             switch (alt3) {
                 case 1 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:41:1: ^( '+' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:41:1: ^( '+' x= expr y= expr )
                     {
                     match(input,48,FOLLOW_48_in_expr76); 
 
@@ -403,7 +403,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:42:3: ^( '-' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:42:3: ^( '-' x= expr y= expr )
                     {
                     match(input,49,FOLLOW_49_in_expr92); 
 
@@ -425,7 +425,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:43:3: ^( U_MOINS x= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:43:3: ^( U_MOINS x= expr )
                     {
                     match(input,U_MOINS,FOLLOW_U_MOINS_in_expr108); 
 
@@ -442,7 +442,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:44:3: ^( COS x= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:44:3: ^( COS x= expr )
                     {
                     match(input,COS,FOLLOW_COS_in_expr120); 
 
@@ -459,7 +459,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:45:3: ^( SIN x= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:45:3: ^( SIN x= expr )
                     {
                     match(input,SIN,FOLLOW_SIN_in_expr132); 
 
@@ -476,7 +476,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:46:3: ^( 'MOD' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:46:3: ^( 'MOD' x= expr y= expr )
                     {
                     match(input,52,FOLLOW_52_in_expr144); 
 
@@ -498,7 +498,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:47:3: ^( '*' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:47:3: ^( '*' x= expr y= expr )
                     {
                     match(input,50,FOLLOW_50_in_expr160); 
 
@@ -520,7 +520,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:48:3: ^( '/' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:48:3: ^( '/' x= expr y= expr )
                     {
                     match(input,51,FOLLOW_51_in_expr176); 
 
@@ -542,7 +542,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:49:3: ^( '^' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:49:3: ^( '^' x= expr y= expr )
                     {
                     match(input,53,FOLLOW_53_in_expr192); 
 
@@ -564,7 +564,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:50:3: ^( '<' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:50:3: ^( '<' x= expr y= expr )
                     {
                     match(input,41,FOLLOW_41_in_expr208); 
 
@@ -586,7 +586,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:51:3: ^( '<=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:51:3: ^( '<=' x= expr y= expr )
                     {
                     match(input,43,FOLLOW_43_in_expr224); 
 
@@ -608,7 +608,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:52:3: ^( '>' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:52:3: ^( '>' x= expr y= expr )
                     {
                     match(input,40,FOLLOW_40_in_expr240); 
 
@@ -630,7 +630,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:53:3: ^( '>=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:53:3: ^( '>=' x= expr y= expr )
                     {
                     match(input,44,FOLLOW_44_in_expr256); 
 
@@ -652,7 +652,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:54:3: ^( '=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:54:3: ^( '=' x= expr y= expr )
                     {
                     match(input,42,FOLLOW_42_in_expr272); 
 
@@ -674,7 +674,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:55:3: ^( '!=' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:55:3: ^( '!=' x= expr y= expr )
                     {
                     match(input,45,FOLLOW_45_in_expr288); 
 
@@ -696,7 +696,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:56:3: ^( '|' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:56:3: ^( '|' x= expr y= expr )
                     {
                     match(input,47,FOLLOW_47_in_expr304); 
 
@@ -718,7 +718,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 17 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:57:3: ^( '&' x= expr y= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:57:3: ^( '&' x= expr y= expr )
                     {
                     match(input,46,FOLLOW_46_in_expr320); 
 
@@ -740,7 +740,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 18 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:58:3: ^( HASARD x= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:58:3: ^( HASARD x= expr )
                     {
                     match(input,HASARD,FOLLOW_HASARD_in_expr336); 
 
@@ -760,7 +760,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 19 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:62:3: PI
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:62:3: PI
                     {
                     match(input,PI,FOLLOW_PI_in_expr348); 
                     v = new Double(3.14957);
@@ -768,7 +768,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 20 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:63:3: INT
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:63:3: INT
                     {
                     INT1=(CommonTree)match(input,INT,FOLLOW_INT_in_expr354); 
                     v = Double.parseDouble((INT1!=null?INT1.getText():null));
@@ -776,7 +776,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 21 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:64:3: REAL
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:64:3: REAL
                     {
                     REAL2=(CommonTree)match(input,REAL,FOLLOW_REAL_in_expr360); 
                     v = Double.parseDouble((REAL2!=null?REAL2.getText():null));
@@ -784,7 +784,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 22 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:65:3: CAP
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:65:3: CAP
                     {
                     match(input,CAP,FOLLOW_CAP_in_expr366); 
                     v = traceur.getTeta();
@@ -792,7 +792,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 23 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:66:3: id= IDENTIFIER
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:66:3: id= IDENTIFIER
                     {
                     id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_expr376); 
 
@@ -807,7 +807,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 24 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:74:3: LOOP
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:74:3: LOOP
                     {
                     match(input,LOOP,FOLLOW_LOOP_in_expr382); 
                      
@@ -822,7 +822,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 25 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:82:3: call
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:82:3: call
                     {
                     pushFollow(FOLLOW_call_in_expr388);
                     call();
@@ -848,7 +848,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "repete"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:86:1: repete : ^( REPETE n= expr . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:86:1: repete : ^( REPETE n= expr . ) ;
     public final void repete() throws RecognitionException {
         double n = 0.0;
 
@@ -857,8 +857,8 @@ public class LogoTree extends TreeParser {
             int mark_list = 0;
           
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:91:3: ( ^( REPETE n= expr . ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:91:5: ^( REPETE n= expr . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:91:3: ( ^( REPETE n= expr . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:91:5: ^( REPETE n= expr . )
             {
             match(input,REPETE,FOLLOW_REPETE_in_repete414); 
 
@@ -881,6 +881,8 @@ public class LogoTree extends TreeParser {
                   push(mark_list);
                   bloc();
                   pop();
+                  if ( context.interrupted() ) return;
+                  context.rewind();
                 }
                 context.removeScope();
               
@@ -900,14 +902,14 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "tantque"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:107:1: tantque : ^( TANTQUE . . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:109:1: tantque : ^( TANTQUE . . ) ;
     public final void tantque() throws RecognitionException {
 
             int cond = 0, bloc = 0;
           
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:112:3: ( ^( TANTQUE . . ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:112:5: ^( TANTQUE . . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:114:3: ( ^( TANTQUE . . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:114:5: ^( TANTQUE . . )
             {
             match(input,TANTQUE,FOLLOW_TANTQUE_in_tantque454); 
 
@@ -926,13 +928,19 @@ public class LogoTree extends TreeParser {
                   push(cond+1);
                   x = expr() != 0;
                   pop();
+                  context.rewind();
                 
+                  if ( context.interrupted() ) return;
+                  
                   if ( x ) 
                   {
             	      push(bloc);
             	      bloc();
             	      pop();
+            	      context.rewind();
                   }
+                  
+                  if ( context.interrupted() ) return;
                 }
               
 
@@ -951,7 +959,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "si"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:132:1: si : ^( SI n= expr . (els= . )? ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:140:1: si : ^( SI n= expr . (els= . )? ) ;
     public final void si() throws RecognitionException {
         CommonTree els=null;
         double n = 0.0;
@@ -961,8 +969,8 @@ public class LogoTree extends TreeParser {
             int bif = 0, belse = 0;
           
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:137:3: ( ^( SI n= expr . (els= . )? ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:138:3: ^( SI n= expr . (els= . )? )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:145:3: ( ^( SI n= expr . (els= . )? ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:146:3: ^( SI n= expr . (els= . )? )
             {
             match(input,SI,FOLLOW_SI_in_si495); 
 
@@ -974,7 +982,7 @@ public class LogoTree extends TreeParser {
 
             bif = input.mark();
             matchAny(input); 
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:138:39: (els= . )?
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:146:39: (els= . )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -983,7 +991,7 @@ public class LogoTree extends TreeParser {
             }
             switch (alt4) {
                 case 1 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:138:40: els= .
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:146:40: els= .
                     {
                     belse = input.mark();
                     els=(CommonTree)input.LT(1);
@@ -998,7 +1006,7 @@ public class LogoTree extends TreeParser {
             match(input, Token.UP, null); 
 
                 if ( n != 0 ) { push(bif); bloc(); pop(); context.rewind(); }
-                else if (els != null) { push(belse); bloc(); pop(); }
+                else if (els != null) { push(belse); bloc(); pop(); context.rewind(); }
               
 
             }
@@ -1016,7 +1024,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "deffonction"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:146:1: deffonction : ^( POUR name= IDENTIFIER a= . ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:154:1: deffonction : ^( POUR name= IDENTIFIER a= . ) ;
     public final void deffonction() throws RecognitionException {
         CommonTree name=null;
         CommonTree a=null;
@@ -1025,8 +1033,8 @@ public class LogoTree extends TreeParser {
             int mark_a = 0;
           
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:151:3: ( ^( POUR name= IDENTIFIER a= . ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:151:5: ^( POUR name= IDENTIFIER a= . )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:159:3: ( ^( POUR name= IDENTIFIER a= . ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:159:5: ^( POUR name= IDENTIFIER a= . )
             {
             match(input,POUR,FOLLOW_POUR_in_deffonction541); 
 
@@ -1056,7 +1064,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "call"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:157:1: call : ^( CALL name= IDENTIFIER (e= expr )* ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:165:1: call : ^( CALL name= IDENTIFIER (e= expr )* ) ;
     public final void call() throws RecognitionException {
         CommonTree name=null;
         double e = 0.0;
@@ -1067,14 +1075,14 @@ public class LogoTree extends TreeParser {
             int mark_fin = 0;
           
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:163:3: ( ^( CALL name= IDENTIFIER (e= expr )* ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:163:5: ^( CALL name= IDENTIFIER (e= expr )* )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:171:3: ( ^( CALL name= IDENTIFIER (e= expr )* ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:171:5: ^( CALL name= IDENTIFIER (e= expr )* )
             {
             match(input,CALL,FOLLOW_CALL_in_call579); 
 
             match(input, Token.DOWN, null); 
             name=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_call583); 
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:163:28: (e= expr )*
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:171:28: (e= expr )*
             loop5:
             do {
                 int alt5=2;
@@ -1087,7 +1095,7 @@ public class LogoTree extends TreeParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:163:29: e= expr
+            	    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:171:29: e= expr
             	    {
             	    pushFollow(FOLLOW_expr_in_call588);
             	    e=expr();
@@ -1126,14 +1134,14 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "rends"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:169:1: rends : ^( RENDS e= expr ) ;
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:177:1: rends : ^( RENDS e= expr ) ;
     public final void rends() throws RecognitionException {
         double e = 0.0;
 
 
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:169:7: ( ^( RENDS e= expr ) )
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:169:9: ^( RENDS e= expr )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:177:7: ( ^( RENDS e= expr ) )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:177:9: ^( RENDS e= expr )
             {
             match(input,RENDS,FOLLOW_RENDS_in_rends608); 
 
@@ -1162,7 +1170,7 @@ public class LogoTree extends TreeParser {
 
 
     // $ANTLR start "instruction"
-    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:171:1: instruction : ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FCC_RGB a= expr b= expr c= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE );
+    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:179:1: instruction : ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FCC_RGB a= expr b= expr c= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE );
     public final void instruction() throws RecognitionException {
         CommonTree i=null;
         double a = 0.0;
@@ -1173,7 +1181,7 @@ public class LogoTree extends TreeParser {
 
 
         try {
-            // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:171:13: ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FCC_RGB a= expr b= expr c= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE )
+            // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:179:13: ( repete | tantque | si | deffonction | call | rends | ^( DONNE i= IDENTIFIER a= expr ) | ^( LOCALE i= IDENTIFIER a= expr ) | ^( AV a= expr ) | ^( TD a= expr ) | ^( TG a= expr ) | ^( REC a= expr ) | ^( FCAP a= expr ) | ^( PAUSE a= expr ) | ^( FCC a= expr ) | ^( FCC_RGB a= expr b= expr c= expr ) | ^( FPOS a= expr b= expr ) | BC | LC | VE )
             int alt6=20;
             switch ( input.LA(1) ) {
             case REPETE:
@@ -1285,7 +1293,7 @@ public class LogoTree extends TreeParser {
 
             switch (alt6) {
                 case 1 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:172:2: repete
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:180:2: repete
                     {
                     pushFollow(FOLLOW_repete_in_instruction624);
                     repete();
@@ -1296,7 +1304,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:173:4: tantque
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:181:4: tantque
                     {
                     pushFollow(FOLLOW_tantque_in_instruction630);
                     tantque();
@@ -1307,7 +1315,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:174:4: si
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:182:4: si
                     {
                     pushFollow(FOLLOW_si_in_instruction635);
                     si();
@@ -1318,7 +1326,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:175:4: deffonction
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:183:4: deffonction
                     {
                     pushFollow(FOLLOW_deffonction_in_instruction640);
                     deffonction();
@@ -1329,7 +1337,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:176:4: call
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:184:4: call
                     {
                     pushFollow(FOLLOW_call_in_instruction645);
                     call();
@@ -1340,7 +1348,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:177:4: rends
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:185:4: rends
                     {
                     pushFollow(FOLLOW_rends_in_instruction650);
                     rends();
@@ -1351,7 +1359,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:178:4: ^( DONNE i= IDENTIFIER a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:186:4: ^( DONNE i= IDENTIFIER a= expr )
                     {
                     match(input,DONNE,FOLLOW_DONNE_in_instruction656); 
 
@@ -1369,7 +1377,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:179:4: ^( LOCALE i= IDENTIFIER a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:187:4: ^( LOCALE i= IDENTIFIER a= expr )
                     {
                     match(input,LOCALE,FOLLOW_LOCALE_in_instruction677); 
 
@@ -1387,7 +1395,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:180:4: ^( AV a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:188:4: ^( AV a= expr )
                     {
                     match(input,AV,FOLLOW_AV_in_instruction698); 
 
@@ -1404,7 +1412,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:181:4: ^( TD a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:189:4: ^( TD a= expr )
                     {
                     match(input,TD,FOLLOW_TD_in_instruction713); 
 
@@ -1421,7 +1429,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 11 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:182:4: ^( TG a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:190:4: ^( TG a= expr )
                     {
                     match(input,TG,FOLLOW_TG_in_instruction728); 
 
@@ -1438,7 +1446,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 12 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:183:4: ^( REC a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:191:4: ^( REC a= expr )
                     {
                     match(input,REC,FOLLOW_REC_in_instruction743); 
 
@@ -1455,7 +1463,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 13 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:184:4: ^( FCAP a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:192:4: ^( FCAP a= expr )
                     {
                     match(input,FCAP,FOLLOW_FCAP_in_instruction758); 
 
@@ -1472,7 +1480,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 14 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:185:4: ^( PAUSE a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:193:4: ^( PAUSE a= expr )
                     {
                     match(input,PAUSE,FOLLOW_PAUSE_in_instruction773); 
 
@@ -1489,7 +1497,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 15 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:186:4: ^( FCC a= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:194:4: ^( FCC a= expr )
                     {
                     match(input,FCC,FOLLOW_FCC_in_instruction788); 
 
@@ -1506,7 +1514,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 16 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:187:4: ^( FCC_RGB a= expr b= expr c= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:195:4: ^( FCC_RGB a= expr b= expr c= expr )
                     {
                     match(input,FCC_RGB,FOLLOW_FCC_RGB_in_instruction803); 
 
@@ -1533,7 +1541,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 17 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:188:4: ^( FPOS a= expr b= expr )
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:196:4: ^( FPOS a= expr b= expr )
                     {
                     match(input,FPOS,FOLLOW_FPOS_in_instruction830); 
 
@@ -1555,7 +1563,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 18 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:189:4: BC
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:197:4: BC
                     {
                     match(input,BC,FOLLOW_BC_in_instruction850); 
                     traceur.setTrace(true);
@@ -1563,7 +1571,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 19 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:190:4: LC
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:198:4: LC
                     {
                     match(input,LC,FOLLOW_LC_in_instruction857); 
                     traceur.setTrace(false);
@@ -1571,7 +1579,7 @@ public class LogoTree extends TreeParser {
                     }
                     break;
                 case 20 :
-                    // Z:\\public_html\\NF11_TP2\\src\\logoparsing\\LogoTree.g:191:4: VE
+                    // /home/scawf/workspace/nf11/src/logoparsing/LogoTree.g:199:4: VE
                     {
                     match(input,VE,FOLLOW_VE_in_instruction864); 
                     traceur.clean();

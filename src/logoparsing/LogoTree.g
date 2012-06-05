@@ -98,6 +98,8 @@ repete
       push(mark_list);
       bloc();
       pop();
+      if ( context.interrupted() ) return;
+      context.rewind();
     }
     context.removeScope();
   }
@@ -117,13 +119,19 @@ tantque
       push(cond+1);
       x = expr() != 0;
       pop();
+      context.rewind();
     
+      if ( context.interrupted() ) return;
+      
       if ( x ) 
       {
 	      push(bloc);
 	      bloc();
 	      pop();
+	      context.rewind();
       }
+      
+      if ( context.interrupted() ) return;
     }
   }
 ;
@@ -138,7 +146,7 @@ si
   ^(SI n=expr {bif = input.mark();} . ({belse = input.mark();} els=.)?)
   {
     if ( $n.v != 0 ) { push(bif); bloc(); pop(); context.rewind(); }
-    else if ($els != null) { push(belse); bloc(); pop(); }
+    else if ($els != null) { push(belse); bloc(); pop(); context.rewind(); }
   }
 ;
 

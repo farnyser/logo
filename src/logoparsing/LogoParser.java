@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/Logo.g 2012-06-05 13:33:01
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 /home/scawf/workspace/nf11/src/logoparsing/Logo.g 2012-06-05 15:06:17
 
   package logoparsing;
   import utilities.Context;
@@ -1231,7 +1231,7 @@ public class LogoParser extends Parser {
 
 
             // AST REWRITE
-            // elements: bloc, name, POUR
+            // elements: name, POUR, bloc
             // token labels: name
             // rule labels: retval
             // token list labels: 
@@ -1354,7 +1354,7 @@ public class LogoParser extends Parser {
 
 
             // AST REWRITE
-            // elements: recursExpr, name
+            // elements: name, recursExpr
             // token labels: name
             // rule labels: retval
             // token list labels: 
@@ -2220,7 +2220,7 @@ public class LogoParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: c, b, a
+                    // elements: b, a, c
                     // token labels: 
                     // rule labels: retval, b, c, a
                     // token list labels: 

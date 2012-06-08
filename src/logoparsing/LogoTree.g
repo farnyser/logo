@@ -41,8 +41,8 @@ expr returns [double v] :
 ^('+' x=expr y=expr) {$v = $x.v + $y.v;}
 | ^('-' x=expr y=expr) {$v = $x.v - $y.v;}
 | ^(U_MOINS x=expr) {$v = - $x.v;}
-| ^(COS x=expr) {$v = Math.cos($x.v);}
-| ^(SIN x=expr) {$v = Math.sin($x.v);}
+| ^(COS x=expr) {$v = Math.cos($x.v/360*2*3.14957);}
+| ^(SIN x=expr) {$v = Math.sin($x.v/360*2*3.14957);}
 | ^('MOD' x=expr y=expr) {$v = (int)$x.v \% (int)$y.v; }
 | ^('*' x=expr y=expr) {$v = $x.v * $y.v;}
 | ^('/' x=expr y=expr) {$v = $x.v / $y.v;}

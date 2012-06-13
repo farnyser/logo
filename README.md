@@ -185,6 +185,48 @@ nf11
 	
 *video*
 
+POUR carre :c 
+	LC
+	AV :c/2
+	TD 90
+	AV :c/2
+	BC
+	
+	REPETE 4 
+	[
+		TD 90
+		AV :c
+	]
+FIN
+
+POUR ccarre :c :n :x :y 
+	REPETE :n 
+	[ 
+		FPOS [ :x :y ] 
+		carre :c/LOOP
+	]
+FIN
+
+REPETE 500
+[
+	VE
+	LOCALE "var 20
+	
+	SI ((LOOP / :var) MOD 2) = 0 
+	[
+		FCAP 5 * (LOOP MOD :var) * (0-1)  + :var
+	]
+	[
+		FCAP 5 * (LOOP MOD :var)
+	]
+	ccarre LOOP*25 50 300 300
+	
+	SI LOOP < 100 [ FCC [ LOOP 0 0 ] ] [  FCC [ LOOP 0 LOOP/4 ] ]
+	PAUSE 40
+]
+
+*video bis*
+
 	POUR carre :c 
 		LC
 		AV :c/2
@@ -215,3 +257,37 @@ nf11
 		SI LOOP < 100 [ FCC [ LOOP 0 0 ] ] [  FCC [ LOOP 0 LOOP/4 ] ]
 		PAUSE 30
 	]
+	
+	
+*la totale*
+
+
+POUR carre :c :x :y 
+ FPOS [ :x :y ] 
+ LC
+ AV :c/2
+ TD 90
+ AV :c/2
+ BC
+	
+ REPETE 4 
+ [
+  TD 90
+  AV :c
+ ]
+FIN
+	
+POUR fibo :n 
+ SI :n > 1 [ RENDS (fibo :n-1) + (fibo :n-2) ] [ RENDS :n ]
+FIN
+
+
+DONNE "x 300
+DONNE "y 300
+DONNE "r 30
+
+REPETE :r
+[
+ LOCALE "cote LOOP/2
+ carre (fibo :cote) :x :y 
+]
